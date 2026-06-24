@@ -3,3 +3,77 @@
     margin: 0;
     box-sizing: border-box;
 }
+.main{
+    width: 100%;
+    min-height: 100vh;
+}
+.head-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fbff;
+    border-bottom: 2px solid #dcdcdc;
+    padding: 10px 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-section {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* adds space between logo and nav links */
+}
+
+.menu {
+    display: flex;
+    gap: 30px; 
+}
+
+.menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #000;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%; /* underline appears on hover */
+}
+
+.auth-section {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn {
+    border: 1px solid #ccc;
+    background: transparent;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.signup-btn {
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
