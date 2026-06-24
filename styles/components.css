@@ -1,0 +1,288 @@
+
+   /* Artisan Card Styles */
+  
+
+.sc-card {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow:      hidden;
+  transition:    box-shadow .2s, transform .2s;
+  display:       flex;
+  flex-direction: column;
+}
+.sc-card:hover {
+  box-shadow: var(--shadow-md);
+  transform:  translateY(-2px);
+}
+
+/* — Image area — */
+.sc-card__image {
+  position:    relative;
+  width:       100%;
+  aspect-ratio: 4/3;
+  overflow:    hidden;
+  background:  var(--color-border);
+}
+.sc-card__image img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+.sc-card:hover .sc-card__image img { transform: scale(1.04); }
+
+.sc-card__rating-badge {
+  position:      absolute;
+  top:           var(--space-2);
+  left:          var(--space-2);
+  background:    rgba(255,255,255,.92);
+  border-radius: var(--radius-sm);
+  padding:       2px 8px;
+  font-size:     var(--font-xs);
+  font-weight:   600;
+  color:         var(--color-text-primary);
+  display:       flex;
+  align-items:   center;
+  gap:           4px;
+  backdrop-filter: blur(4px);
+}
+.sc-card__rating-star { color: var(--color-primary); font-size: .7rem; }
+
+.sc-card__wishlist {
+  position:      absolute;
+  top:           var(--space-2);
+  right:         var(--space-2);
+  width:         30px;
+  height:        30px;
+  background:    rgba(255,255,255,.85);
+  border-radius: 50%;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  font-size:     .8rem;
+  cursor:        pointer;
+  transition:    background .18s;
+  backdrop-filter: blur(4px);
+}
+.sc-card__wishlist:hover { background: var(--color-white); }
+
+/* — Body — */
+.sc-card__body {
+  padding: var(--space-4);
+  flex:    1;
+  display: flex;
+  flex-direction: column;
+  gap:     var(--space-2);
+}
+
+.sc-card__name {
+  font-size:   var(--font-base);
+  font-weight: 700;
+  color:       var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.sc-card__role {
+  font-size: var(--font-sm);
+  color:     var(--color-text-secondary);
+}
+
+.sc-card__meta {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  font-size:   var(--font-xs);
+  color:       var(--color-text-secondary);
+}
+.sc-card__meta-item {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+}
+
+.sc-card__price {
+  font-size:  var(--font-xs);
+  color:      var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.sc-card__price strong {
+  font-size:  var(--font-sm);
+  color:      var(--color-text-primary);
+  font-weight: 700;
+}
+
+.sc-card__location-tag {
+  display:       inline-block;
+  background:    var(--color-blue-accent);
+  color:         var(--color-white);
+  font-size:     var(--font-xs);
+  font-weight:   500;
+  padding:       2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* — Actions row — */
+.sc-card__actions {
+  padding:         var(--space-3) var(--space-4) var(--space-4);
+  display:         flex;
+  gap:             var(--space-2);
+  border-top:      1px solid var(--color-border);
+  justify-content: stretch;
+}
+.sc-card__actions .sc-btn { flex: 1; }
+
+/* — Booking card variant (used in My Bookings) — */
+.sc-booking-card {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding:       var(--space-5) var(--space-6);
+  display:       flex;
+  align-items:   flex-start;
+  gap:           var(--space-4);
+  transition:    box-shadow .2s;
+}
+.sc-booking-card:hover { box-shadow: var(--shadow-sm); }
+
+.sc-booking-card__info { flex: 1; }
+
+.sc-booking-card__name {
+  font-size:   var(--font-lg);
+  font-weight: 700;
+  color:       var(--color-text-primary);
+}
+.sc-booking-card__service {
+  font-size: var(--font-sm);
+  color:     var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.sc-booking-card__meta {
+  display:    flex;
+  gap:        var(--space-6);
+  margin-top: var(--space-3);
+  font-size:  var(--font-sm);
+  color:      var(--color-text-secondary);
+}
+.sc-booking-card__meta-item {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+.sc-booking-card__actions { margin-top: var(--space-4); }
+
+.sc-booking-card__status {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+
+
+   /* Input / Form Field Styles */
+
+
+.sc-field {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-1);
+}
+
+.sc-field__label {
+  font-size:   var(--font-sm);
+  font-weight: 500;
+  color:       var(--color-text-primary);
+}
+.sc-field__label--required::after {
+  content: ' *';
+  color:   #EF4444;
+}
+
+.sc-field__wrapper {
+  position: relative;
+  display:  flex;
+  align-items: center;
+}
+
+.sc-input {
+  width:         100%;
+  height:        44px;
+  padding:       0 var(--space-4);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size:     var(--font-sm);
+  color:         var(--color-text-primary);
+  background:    var(--color-white);
+  transition:    border-color .18s, box-shadow .18s;
+}
+.sc-input::placeholder { color: var(--color-text-muted); }
+.sc-input:focus {
+  outline:      none;
+  border-color: var(--color-primary);
+  box-shadow:   0 0 0 3px rgba(245,158,11,.15);
+}
+.sc-input:disabled {
+  background: var(--color-bg);
+  cursor:     not-allowed;
+  opacity:    0.6;
+}
+.sc-input--error {
+  border-color: #EF4444;
+}
+.sc-input--error:focus {
+  border-color: #EF4444;
+  box-shadow:   0 0 0 3px rgba(239,68,68,.15);
+}
+
+/* With left icon */
+.sc-input--icon-left  { padding-left:  2.5rem; }
+.sc-input--icon-right { padding-right: 2.5rem; }
+
+.sc-field__icon {
+  position:  absolute;
+  color:     var(--color-text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.sc-field__icon--left  { left: 0.8rem; }
+.sc-field__icon--right {
+  right:          0.8rem;
+  pointer-events: auto;
+  cursor:         pointer;
+}
+.sc-field__icon--right:hover { color: var(--color-text-primary); }
+
+/* Textarea */
+.sc-textarea {
+  width:         100%;
+  padding:       var(--space-3) var(--space-4);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size:     var(--font-sm);
+  color:         var(--color-text-primary);
+  background:    var(--color-white);
+  resize:        vertical;
+  min-height:    100px;
+  transition:    border-color .18s, box-shadow .18s;
+}
+.sc-textarea::placeholder { color: var(--color-text-muted); }
+.sc-textarea:focus {
+  outline:      none;
+  border-color: var(--color-primary);
+  box-shadow:   0 0 0 3px rgba(245,158,11,.15);
+}
+
+/* Helper/error text */
+.sc-field__hint {
+  font-size: var(--font-xs);
+  color:     var(--color-text-muted);
+}
+.sc-field__error {
+  font-size: var(--font-xs);
+  color:     #EF4444;
+  display:   flex;
+  align-items: center;
+  gap:       4px;
+}
