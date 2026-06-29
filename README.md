@@ -1,7 +1,5 @@
 # ServiceConnect Nigeria
 
-A digital marketplace connecting local communities with verified artisans, built entirely with standard web fundamentals. This application serves as our final capstone project at **Nanocodes**.
-
 A digital marketplace connecting local communities with verified artisans, built entirely with standard web fundamentals. This application serves as our final capstone project at [Nanocodes](https://nanocodes.com.ng).
 
 ## The Tech Stack
