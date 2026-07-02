@@ -1,0 +1,343 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display:flex;
+  height: 100vh;
+  align-items: center;
+  font-family: arial;
+  overflow: hidden;
+  scrollbar-width: none;
+  background:#faf2f7;
+  /* gap:; */
+}
+
+.sideBar{
+  background: var(--color-navy);
+  height: 100vh;
+  width: var(--sidebar-width);
+  flex-direction: column;
+  color: white;
+  padding: 30px 20px;
+  display:    flex;
+  flex-direction: column;
+  overflow: hidden;
+    position: sticky;
+    top: 0;
+    transition: transform 0.3s ease;
+}
+.sideBar.show{
+  transform: translateX(0);
+}
+.fa-bars{
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 10px;
+  z-index: 1000;
+  background-color: #1f2937;
+  color: white;
+  padding: 3px 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+
+}
+.fa-bars:hover{
+   background-color: #1e314f;
+   opacity: 0.9;
+   transform: scale(1.1);
+}
+.fa-bars:active{
+ transform: scale(.8);
+}
+
+ .logo{
+  margin-bottom: 40px;
+ }
+ .logo h2{
+  font-weight: 700;
+  font-size: 1.25rem;
+ }
+
+ .logo p{
+   color:var(--color-text-secondary);
+   font-size:   var(--font-xs);
+   font-weight: 600;
+ }
+ .sideBar ul{
+  font-weight: 500;
+  list-style-type: none;
+  height: 100vh;
+ }
+
+ .settings, .sideBar ul li{
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  padding:     0.65rem var(--space-5);
+  font-size:   var(--font-sm);
+  font-weight: 600;
+  color:       rgba(253, 250, 250, 0.829);
+  border-radius: 6px;
+  transition:  0.3s, color .18s;
+  cursor:      pointer;
+  position:    relative;
+  text-decoration: none;
+  border:      none;
+  background:  none;
+  width:       100%;
+  text-align:  left;
+
+ }
+
+ .settings:hover, .sideBar ul li:hover{
+   background: rgba(28, 48, 109, 0.811);
+   color:  var(--color-white);
+   transform: translateX(5px);
+ }
+
+ .settings:active, .sideBar ul li:active{
+  background: rgba(83, 78, 78, 0.178);
+  color:      var(--color-white);
+  font-weight: 600;
+    transform: translateY(1px);
+ }
+ .settings{
+  margin-top:auto;
+ }
+
+.mainContent{
+flex: 1;
+gap: 20px;
+display: flex;
+flex-direction: column;
+ height: 100vh;
+padding: 20px 20px;
+overflow: hidden;
+justify-content: center;
+}
+.mainContent h1{
+  color: var(--color-navy);
+}
+
+.topSearch input{
+  /* width: 100%; */
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.topSearch{
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.topSearch hr{
+  color: black;
+}
+
+.filterArtisan{
+  display: flex;
+  width: 100%;
+  gap: 85px;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 5px;
+  box-shadow:0.5px 0.5px 3px rgb(158, 142, 142);
+}
+
+.filterArtisan input,
+.filterArtisan select{
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid black;
+ background:#fcf6fa;
+}
+
+.filterArtisan div{
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+
+.historyCard{
+   background:#faf2f7;
+   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  gap: 5px;
+  overflow-y: scroll;
+   scrollbar-width: none;
+}
+ .profile{
+  display: flex;
+  align-items: center;
+  /* gap: 15px; */
+  box-shadow:0.5px 0.5px 3px rgb(158, 142, 142);
+  justify-content: space-around;
+  border-radius: 5px;
+  background: white;
+  padding: 15px 10px;
+ }
+
+ .profile img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+ }
+
+ .btn{
+   display: flex;
+   gap: 20px;
+   cursor: pointer;
+ }
+ .View{
+   border: solid black 2px;
+   padding: 10px 18px;
+   border-radius:6px ;
+   position: relative;
+   transition:  0.3s, color .18s;
+ }
+ .View:hover{
+  background: rgb(221, 219, 219);
+  transform: translateX(3px);
+ }
+ .View:active{
+  transform: translateY(1px);
+ }
+ .Rebook{
+   border: none;
+   background: #f19021;;
+   padding: 10px 18px;
+   border-radius:6px ;
+   color: white;
+   position: relative;
+   transition:  0.3s, color .18s;
+ }
+ .Rebook:hover{
+  background: rgb(246, 168, 22);
+   transform: translateX(3px);
+ }
+ .Rebook:active{
+    transition:  0.3s, color .18s;
+    transform: translateY(1px);
+   }
+
+   small{
+    font-weight: lighter;
+    font-size: 11px;
+    letter-spacing:1%;
+    font-family: Lucida;
+   }
+
+   @media (max-width:768px){
+    .sideBar{
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        transition: transform .3s eas
+    }
+
+    .sideBar.show{
+        transform: translateX();
+    }
+
+    #menu{
+        display: block;
+    }
+    .fa-bars{
+     display: block;
+}
+
+   .mainContent {
+    gap: 5px;
+        /* margin-right: 4px; */
+        /* padding: 40px 0; */
+        /* margin-left: 0; */
+    }
+    .mainContent h1{
+      font-size: 20px;
+    }
+
+    .filterArtisan {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .filterArtisan select{
+      padding: 3px;
+    }
+
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 9px 10px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 10px;
+        font-weight: 500;
+    }
+    .View{
+      padding: 1px 10px;
+    }
+    .Rebook{
+      padding: 5px 10px;
+    }
+   }
+
+   @media (min-width:768px) and (max-width:1023px) {
+      .sideBar{
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        transition: transform .3s ease
+    }
+
+    .sideBar.show{
+        transform: translateX();
+    }
+
+    #menu{
+        display: block;
+    }
+    .fa-bars{
+     display: block;
+}
+
+ .mainContent {
+        padding: 20px;
+    }
+
+    .filterArtisan {
+        gap: 20px;
+    }
+
+    .profile {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: flex-end;
+    }
+   
+
+   }

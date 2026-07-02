@@ -5,8 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ServiceConnect Nigeria</title>
   <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../../../css/components.css">
+  <link rel="stylesheet" href="../../../css/servicehistory.css">
 </head>
 <body>
-  </body>
+
+  <aside>
+    <button id="menu">
+    <i id="fa-bars" class="fa fa-bars"></i>
+    </button>
+  <div class="sideBar">
+   <div class="logo">
+    <h2 id="hi">ServiceConnect</h2>
+    <p>Nigeria</p>
+  </div>
+
+  <ul>
+    <li><i class="fa-solid fa-qrcode"></i> Dashbord</li>
+    <li><i class="fa fa-magnifying-glass"></i> search Services</li>
+    <li><i class="far fa-calendar"></i> My Bookings</li>
+    <li class="active"><i class="fa-solid fa-clock-rotate-left"></i> service History</li>
+    <li> <i class="fa-solid fa-star-half-stroke"></i> Reviews</li>
+    </ul>
+
+    <div class="settings">
+       <i class="fa-solid fa-gear"></i> <span> Settings</span></div>
+  </ul>
+
+ </div>
+  </aside>
+
+  <main class="mainContent">
+    <div class="topSearch">
+      <input class="sc-input--error" type="text" placeholder="search...">
+      <hr>
+    </div>
+
+    <h1>Service History</h1>
+
+    <div class="filterArtisan">
+       <input class="sc-input--error" type="text" placeholder="search by Artisan or service" name="" id="">
+       <div>
+       <select name="" id="dateFilter" >
+        <option value="">All dates</option>
+       </select>
+       <select name="" id="categoryFilter">
+        <option value="">All categories</option>
+       </select>
+      </div>
+     </div>
+
+     <section class="historyCard" id="historyCard">
+     
+     </section>
+  </main>
+
+  <script src="../../js/servicehistory.js"></script>
+</body>
 </html>
