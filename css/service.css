@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('./button.css');
+@import url('./navbar.css');
+@import url('./sidebar.css');
+@import url('./components.css');
+@import url('./main.css');
+
+
+.services-page {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-8); 
+    padding: var(--space-8);
+}
+
+
+.filters {
+    flex: 0 0 260px; 
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+}
+
+
+.filters h3 {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.filters-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-sm);
+  margin-bottom: var(--space-6);
+}
+
+.filter-group {
+  margin-bottom: var(--space-6);
+}
+
+.filter-toggle {
+  width: 100%;
+  background-color: var(--color-blue-btn);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  margin-top: var(--space-3);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: none;
+}
+
+.filter-dropdown label {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.filter-dropdown input[type="text"] {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  color: var(--color-text-primary);
+}
+
+/* Show dropdown when active */
+.filter-dropdown.active {
+  display: block;
+}
+
+
+.artisan-grid {
+    flex: 1; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+}
+
+
+
+
+
+
+@media (max-width: 820px) {
+    .services-page {
+        flex-direction: column;
+    }
+}

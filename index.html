@@ -4,26 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Connect Nigeria</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/artisangrid.css">
+    <script src="./js/publicpage.js" defer></script>
 </head>
 <body>
     <main class="main">
         <!-- nav bar header -->
-        <header class="sc-navbar">
-            <article class="nav-section">
-                <h2 class="sc-navbar__logo">ServiceConnect</h2>
-                <nav class="sc-navbar__links">
-                    <a href="#" class="sc-navbar__link  link-sc">Home</a>
-                    <a href="#" class="sc-navbar__link  ">Services</a>
-                    <a href="#" class="sc-navbar__link  ">Become an Artisan</a>
-                </nav>
-            </article>
-
-            <article class="sc-btn">
-                <button class="login-btn">Login</button>
-                <button class="signup-btn">Sign Up</button>
-            </article>
-        </header>
+        <article id="header"></article>
         <!-- serch button section -->
         <article class="intro-section">
             <article class="intro-text">
@@ -35,16 +22,23 @@
                 </p>
 
                 <article class="search-bar">
-                    <article class="input-wrapper">
-                        <i class="fa-solid fa-wrench"><span class="streamline-cyber--wrench-screwdriver"></span></i>
-                        <input type="text" placeholder="Service type eg (plumber, cleaner, watchman)">
-                    </article>
-                    <article class="input-wrapper">
-                        <i class="fa-solid fa-location-dot"><span class="mingcute--location-line"></span></i>
-                        <input type="text" placeholder="Location eg (Abuja, Lagos, Anambra)">
-                    </article>
-                    <button class="search-btn" > Search </button>
+                    <div class="sc-field">
+                        <div class="sc-field__wrapper">
+                        <i class="sc-field__icon sc-field__icon--left fa-solid fa-wrench"></i>
+                        <input type="text" class="sc-input sc-input--icon-left" placeholder="Plumber, Cleaner, Watchman">
+                        </div>
+                    </div>
+
+                    <div class="sc-field">
+                        <div class="sc-field__wrapper">
+                        <i class="sc-field__icon sc-field__icon--left fa-solid fa-location-dot"></i>
+                        <input type="text" class="sc-input sc-input--icon-left" placeholder="Abuja, Lagos, Anambra">
+                        </div>
+                    </div>
+
+                    <button class="sc-btn sc-btn--primary">Search</button>
                 </article>
+
                 <article class="trust-section">
                     <article class="avatars">
                         <img src="/images/blackman-with-suit.jpg" alt="User 1">
@@ -69,41 +63,58 @@
             <p>Explore our most requested services</p>
 
             <article class="category-grid">
-                <article class="category-card">
-                    <i class="fa-solid fa-bolt">
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
+                    <i class=" fa-bolt">
                         <span class="material-symbols--bolt-outline"></span>
                     </i>
-                    <h3>Electrician</h3>
+                    <h3 class="sc-card__name">Electrician</h3>
+                </div>
                 </article>
-                <article class="category-card">
+
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
                     <i class="fa-solid fa-wrench">
                         <span class="lucide--wrench"></span>
                     </i>
-                    <h3>Plumber</h3>
+                    <h3 class="sc-card__name">Plumber</h3>
+                </div>
                 </article>
-                <article class="category-card">
+
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
                     <i class="fa-solid fa-hammer">
                         <span class="famicons--hammer"></span>
                     </i>
-                    <h3>Carpenter</h3>
+                    <h3 class="sc-card__name">Carpenter</h3>
+                </div>
                 </article>
-                <article class="category-card">
+
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
                     <i class="fa-solid fa-screwdriver-wrench">
                         <span class="streamline-cyber--wrench-screwdriver"></span>
                     </i>
-                    <h3>Mechanic</h3>
+                    <h3 class="sc-card__name">Mechanic</h3>
+                </div>
                 </article>
-                <article class="category-card">
+
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
                     <i class="fa-solid fa-shirt">
                         <span class="tabler--shirt-filled"></span>
                     </i>
-                    <h3>Tailor</h3>
+                    <h3 class="sc-card__name">Tailor</h3>
+                </div>
                 </article>
-                <article class="category-card">
+
+                <article class="sc-card category-card">
+                <div class="sc-card__body">
                     <i class="fa-solid fa-paintbrush">
                         <span class="proicons--paintbrush"></span>
                     </i>
-                    <h3>Painter</h3>
+                    <h3 class="sc-card__name">Painter</h3>
+                </div>
                 </article>
             </article>
         </section>
@@ -118,55 +129,55 @@
             </article>
 
             <article class="artisan-grid">
-                <article class="artisan-card">
-                    <article class="image-wrapper">
+                <article class="sc-card artisan-card">
+                    <article class="sc-card__image">
                         <img src="/images/blackman-with-suit.jpg" alt="Adekunle Johnson">
-                        <article class="rating">★ 4.8</article>
+                        <article class="sc-card__rating-badge">★ 4.8</article>
                     </article>
-                    <article class="artisan-info">
-                        <h3>Adekunle Johnson</h3>
-                        <p>Professional Electrician</p>
-                        <p class="location">Lekki, Lagos</p>
-                        <button class="book-btn">Book Now</button>
+                    <article class="sc-card__body">
+                        <h3 class="sc-card__name">Adekunle Johnson</h3>
+                        <p class="sc-card__role">Professional Electrician</p>
+                        <span class="sc-card__location-tag">Lekki, Lagos</span>
+                        <button class="sc-btn sc-btn--primary">Book Now</button>
                     </article>
                 </article>
 
-                <article class="artisan-card">
-                    <article class="image-wrapper">
+                <article class="sc-card artisan-card">
+                    <article class="sc-card__image">
                         <img src="/images/blackman-with-suit.jpg" alt="Adekunle Johnson">
-                        <article class="rating">★ 4.8</article>
+                        <article class="sc-card__rating-badge">★ 4.8</article>
                     </article>
-                    <article class="artisan-info">
-                        <h3>Adekunle Johnson</h3>
-                        <p>Professional Electrician</p>
-                        <p class="location">Lekki, Lagos</p>
-                        <button class="book-btn">Book Now</button>
+                    <article class="sc-card__body">
+                        <h3 class="sc-card__name">Adekunle Johnson</h3>
+                        <p class="sc-card__role">Professional Electrician</p>
+                        <span class="sc-card__location-tag">Lekki, Lagos</span>
+                        <button class="sc-btn sc-btn--primary">Book Now</button>
                     </article>
                 </article>
 
-                <article class="artisan-card">
-                    <article class="image-wrapper">
+                <article class="sc-card artisan-card">
+                    <article class="sc-card__image">
                         <img src="/images/blackman-with-suit.jpg" alt="Adekunle Johnson">
-                        <article class="rating">★ 4.8</article>
+                        <article class="sc-card__rating-badge">★ 4.8</article>
                     </article>
-                    <article class="artisan-info">
-                        <h3>Adekunle Johnson</h3>
-                        <p>Professional Electrician</p>
-                        <p class="location">Lekki, Lagos</p>
-                        <button class="book-btn">Book Now</button>
+                    <article class="sc-card__body">
+                        <h3 class="sc-card__name">Adekunle Johnson</h3>
+                        <p class="sc-card__role">Professional Electrician</p>
+                        <span class="sc-card__location-tag">Lekki, Lagos</span>
+                        <button class="sc-btn sc-btn--primary">Book Now</button>
                     </article>
                 </article>
 
-                <article class="artisan-card">
-                    <article class="image-wrapper">
+                <article class="sc-card artisan-card">
+                    <article class="sc-card__image">
                         <img src="/images/blackman-with-suit.jpg" alt="Adekunle Johnson">
-                        <article class="rating">★ 4.8</article>
+                        <article class="sc-card__rating-badge">★ 4.8</article>
                     </article>
-                    <article class="artisan-info">
-                        <h3>Adekunle Johnson</h3>
-                        <p>Professional Electrician</p>
-                        <p class="location">Lekki, Lagos</p>
-                        <button class="book-btn">Book Now</button>
+                    <article class="sc-card__body">
+                        <h3 class="sc-card__name">Adekunle Johnson</h3>
+                        <p class="sc-card__role">Professional Electrician</p>
+                        <span class="sc-card__location-tag">Lekki, Lagos</span>
+                        <button class="sc-btn sc-btn--primary">Book Now</button>
                     </article>
                 </article>
             </article>
@@ -202,38 +213,18 @@
         <section class="cta-section">
             <article class="cta-content">
                 <article class="cta-text">
-                    <h2>Ready to fix your home?</h2>
-                    <p>Join thousands of satisfied Nigerians who trust ServiceConnect for their maintenance needs.</p>
+                <h2>Ready to fix your home?</h2>
+                <p>Join thousands of satisfied Nigerians who trust ServiceConnect for their maintenance needs.</p>
                 </article>
 
                 <article class="cta-buttons">
-                    <button class="btn-primary">Get Started</button>
-                    <button class="btn-secondary">Learn More</button>
+                <button class="sc-btn sc-btn--primary">Get Started</button>
+                <button class="sc-btn sc-btn--outline">Learn More</button>
                 </article>
             </article>
         </section>
         <!-- footer section -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-left">
-                <h3>ServiceConnect</h3>
-                <p>© 2024 ServiceConnect Nigeria. Connecting local expertise to your doorstep.</p>
-                </div>
-
-                <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Help Center</a>
-                <a href="#">Contact</a>
-                </div>
-
-                <div class="footer-icons">
-                <button class="icon-btn"><i class="fa-solid fa-share-nodes"><span class="flowbite--share-nodes-outline"></span></i></button>
-                <button class="icon-btn"><i class="fa-solid fa-globe"><span class="material-symbols--globe"></span></i></button>
-                </div>
-            </div>
-        </footer>
+        <article id="footer"></article>
     </main>
 </body>
 </html>
