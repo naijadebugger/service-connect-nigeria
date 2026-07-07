@@ -11,7 +11,6 @@ body{
   font-family: arial;
   overflow: hidden;
   scrollbar-width: none;
-  background:#faf2f7;
   /* gap:; */
 }
 
@@ -22,12 +21,12 @@ body{
   flex-direction: column;
   color: white;
   padding: 30px 20px;
-  display:    flex;
+  display:flex;
   flex-direction: column;
   overflow: hidden;
-    position: sticky;
-    top: 0;
-    transition: transform 0.3s ease;
+  position: hidden;
+  top: 0;
+  transition: transform 0.3s ease;
 }
 .sideBar.show{
   transform: translateX(0);
@@ -53,6 +52,7 @@ body{
    opacity: 0.9;
    transform: scale(1.1);
 }
+
 .fa-bars:active{
  transform: scale(.8);
 }
@@ -93,23 +93,42 @@ body{
   background:  none;
   width:       100%;
   text-align:  left;
-
+  
  }
 
  .settings:hover, .sideBar ul li:hover{
-   background: rgba(28, 48, 109, 0.811);
+   opacity: 1;
+   background:  rgba(255,255,255,.07);
    color:  var(--color-white);
-   transform: translateX(5px);
+   transform: translateX(5px)
  }
 
  .settings:active, .sideBar ul li:active{
-  background: rgba(83, 78, 78, 0.178);
+  opacity: 1;
+  background: rgba(255,255,255,.10);
   color:      var(--color-white);
   font-weight: 600;
-    transform: translateY(1px);
  }
+.settings:active::before, .sideBar ul li:active::before{
+  content:       '';
+  position:      absolute;
+  left:          0;
+  top:           6px;
+  bottom:        6px;
+  width:         3px;
+  background:    var(--color-primary);
+  border-radius: 0 3px 3px 0;
+}
+
  .settings{
   margin-top:auto;
+ }
+
+ .sideBar ul li i {
+  font-size:   1rem;
+  width:       20px;
+  flex-shrink: 0;
+  opacity:     0.8;
  }
 
 .mainContent{
@@ -121,6 +140,7 @@ flex-direction: column;
 padding: 20px 20px;
 overflow: hidden;
 justify-content: center;
+background: #F8F9FF;
 }
 .mainContent h1{
   color: var(--color-navy);
@@ -159,6 +179,7 @@ justify-content: center;
   border-radius: 6px;
   border: 1px solid black;
  background:#fcf6fa;
+ background: #F8F9FF;
 }
 
 .filterArtisan div{
@@ -181,12 +202,12 @@ justify-content: center;
  .profile{
   display: flex;
   align-items: center;
-  /* gap: 15px; */
   box-shadow:0.5px 0.5px 3px rgb(158, 142, 142);
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 5px;
   background: white;
   padding: 15px 10px;
+
  }
 
  .profile img{
@@ -201,37 +222,68 @@ justify-content: center;
    gap: 20px;
    cursor: pointer;
  }
+
+ .btn button{
+  padding:     0.875rem var(--space-8);
+  font-size:   var(--font-base);
+  border-radius: var(--radius-lg);
+   display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--space-2);
+  padding:         0.625rem var(--space-5);
+  border-radius:   var(--radius-md);
+  font-size:       var(--font-sm);
+  font-weight:     600;
+  line-height:     1;
+  transition:      background 0.18s ease, transform 0.12s ease,
+                   box-shadow 0.18s ease, color 0.18s ease,
+                   border-color 0.18s ease;
+  white-space:     nowrap;
+  cursor:          pointer;
+  border:          2px solid transparent;
+  text-decoration: none;
+ }
+ .btn button:active {
+   transform: scale(0.97);
+ }
+ .btn button:focus-visible{
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+ }
+ .btn button:disabled, 
+ .btn button [aria-disabled="true"]{
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+ }
+
  .View{
-   border: solid black 2px;
-   padding: 10px 18px;
-   border-radius:6px ;
-   position: relative;
-   transition:  0.3s, color .18s;
+   background:   transparent;
+  color:        var(--color-blue-btn);
+  border-color: var(--color-blue-btn);
  }
  .View:hover{
-  background: rgb(221, 219, 219);
-  transform: translateX(3px);
+  background: var(--color-blue-btn);
+  color:      var(--color-white);
  }
- .View:active{
+ /* .View:active{
   transform: translateY(1px);
- }
+ } */
  .Rebook{
-   border: none;
-   background: #f19021;;
-   padding: 10px 18px;
-   border-radius:6px ;
-   color: white;
-   position: relative;
-   transition:  0.3s, color .18s;
+  background: var(--color-primary);
+  color:      var(--color-white);
+  border-color: var(--color-primary);
  }
  .Rebook:hover{
-  background: rgb(246, 168, 22);
-   transform: translateX(3px);
+  background:   var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow:   0 4px 14px rgba(245,158,11,.35);
  }
- .Rebook:active{
+ /* .Rebook:active{
     transition:  0.3s, color .18s;
     transform: translateY(1px);
-   }
+   } */
 
    small{
     font-weight: lighter;
@@ -246,12 +298,13 @@ justify-content: center;
         position: fixed;
         left: 0;
         top: 0;
+        z-index: 50;
         transform: translateX(-100%);
         transition: transform .3s eas
     }
 
     .sideBar.show{
-        transform: translateX();
+        transform: translateX(0);
     }
 
     #menu{
@@ -263,10 +316,8 @@ justify-content: center;
 
    .mainContent {
     gap: 5px;
-        /* margin-right: 4px; */
-        /* padding: 40px 0; */
-        /* margin-left: 0; */
     }
+
     .mainContent h1{
       font-size: 20px;
     }
@@ -282,11 +333,10 @@ justify-content: center;
 
     .profile {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(3,1fr);
         gap: 10px;
         padding: 9px 10px;
     }
-
     .btn {
         width: 100%;
         font-size: 10px;
@@ -296,7 +346,9 @@ justify-content: center;
       padding: 1px 10px;
     }
     .Rebook{
-      padding: 5px 10px;
+      padding: 0.375rem var(--space-3);
+      font-size: var(--font-xs);
+      border-radius: var(--radius-sm);
     }
    }
 

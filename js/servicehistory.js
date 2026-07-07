@@ -1,4 +1,4 @@
-const main = document.getElementsByClassName(".serviceCard")
+const main = document.getElementsByClassName("serviceCard")
 const historyCard = document.getElementById("historyCard")
 const menuBtn = document.getElementById("menu");
 const sidebar = document.querySelector(".sideBar");
@@ -13,77 +13,77 @@ console.log(menuBtn)
 let user = [
   {
   id:1,
-  name: "tayo",
+  name: "Tayo",
   service: "Tailoring",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
+  image: "https://picsum.photos/900"
   },
 
   {
-  id:1,
-  name: "tayo",
-  service: "Tailoring",
+  id:2,
+  name: "Buike",
+  service: "Chef",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
+ image: "https://picsum.photos/600"
   },
 {
-  id:1,
-  name: "tayo",
-  service: "Tailoring",
+  id:3,
+  name: "Ayo",
+  service: "Bricklayer",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
+  image: "https://picsum.photos/100"
   },
 
   {
   id:1,
-  name: "ada",
-  service: "Tailoring",
+  name: "Ada",
+  service: "Baker",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
-  },
+  image: "https://picsum.photos/500"
+},
   {
   id:1,
-  name: "tayo",
-  service: "Tailoring",
+  name: "Obi",
+  service: "Carpenter",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
-  },
-
-  {
-  id:1,
-  name: "tayo",
-  service: "Tailoring",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image: "images",
+ image: "https://picsum.photos/400",
   },
 
   {
   id:1,
-  name: "tayo",
-  service: "Tailoring",
+  name: "Nnamdi",
+  service: "Sales rep",
   date:"oct 15, 2023",
   amount: "$15000",
   rating: 5,
   status: "completed",
-  image: "images",
+  image:"https://picsum.photos/300",
+  },
+
+  {
+  id:1,
+  name: "Zikora",
+  service: "Electrictian",
+  date:"oct 15, 2023",
+  amount: "$15000",
+  rating: 5,
+  status: "completed",
+  image:"https://picsum.photos/200",
   },
 
 
@@ -105,7 +105,8 @@ historyCard.innerHTML = user
         <small>DATE</small>
           <p>${item.date}</p>
         </div>
-        <div><small>AMOUNT</small>
+        <div class="amount">
+        <small>AMOUNT</small>
           <p>${item.amount}</p>
         </div>
         <div><small class="rating">RATINGS</small>
