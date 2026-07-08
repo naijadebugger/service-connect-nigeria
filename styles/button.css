@@ -1,4 +1,4 @@
-   /* Button Component Styles */
+/* Button Component Styles */
 
 
 .sc-btn {
@@ -69,6 +69,30 @@
   background: var(--color-navy-mid);
   border-color: var(--color-navy-mid);
   box-shadow: 0 4px 14px rgba(15,23,42,.25);
+}
+
+/* — Danger (Red) — */
+.sc-btn--danger {
+  background:   var(--color-danger);
+  color:        var(--color-white);
+  border-color: var(--color-danger);
+}
+.sc-btn--danger:hover {
+  background:   var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+  box-shadow:   0 4px 14px rgba(239,68,68,.35);
+}
+
+/* — Success (Green) — */
+.sc-btn--success {
+  background:   var(--color-success);
+  color:        var(--color-white);
+  border-color: var(--color-success);
+}
+.sc-btn--success:hover {
+  background:   var(--color-success-dark);
+  border-color: var(--color-success-dark);
+  box-shadow:   0 4px 14px rgba(16,185,129,.35);
 }
 
 /* — Outline (dark border) — */

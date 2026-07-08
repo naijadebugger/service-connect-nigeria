@@ -3,7 +3,7 @@
  * Usage:
  *   SCButton({ label, variant, size, icon, full, disabled, loading, onClick, href })
  *
- * Variants: 'primary' | 'navy' | 'outline' | 'outline-light' | 'ghost' | 'icon'
+ * Variants: 'primary' | 'navy' | 'danger' | 'success' | 'outline' | 'outline-light' | 'ghost' | 'icon'
  * Sizes:    'sm' | 'md' (default) | 'lg'
  */
 
@@ -60,6 +60,8 @@ function SCButton({
  */
 const SCButtonPrimary = (opts) => SCButton({ variant: 'primary', ...opts });
 const SCButtonNavy    = (opts) => SCButton({ variant: 'navy',    ...opts });
+const SCButtonDanger  = (opts) => SCButton({ variant: 'danger',  ...opts });
+const SCButtonSuccess = (opts) => SCButton({ variant: 'success', ...opts });
 const SCButtonOutline = (opts) => SCButton({ variant: 'outline', ...opts });
 const SCButtonGhost   = (opts) => SCButton({ variant: 'ghost',   ...opts });
 
@@ -77,3 +79,27 @@ function setButtonLoading(btn, isLoading) {
     btn.disabled = false;
   }
 }
+
+/**
+ * USAGE MAP — which variant to reach for, and where it shows up
+ * ────────────────────────────────────────────────────────────────
+ * primary (orange) : main page CTA — Post a Job, Book Now/Book Service,
+ *                     Sign Up, Login, "I want to work", Confirm Booking,
+ *                     Accept Job, Withdraw, Apply Filters, Get Started,
+ *                     Post a Job Request
+ * navy             : secondary-but-important action — Save Changes,
+ *                     Invite User, Process All Payouts, Contact Artisan,
+ *                     Details, "I want to hire", Quick Book, Upload Photo,
+ *                     Call Support Now
+ * danger (red)     : destructive/negative action — "Reject Request"
+ *                     (Admin > Artisan Verification)
+ * success (green)  : affirmative/approval action — "Approve Artisan"
+ *                     (Admin > Artisan Verification)
+ * outline          : low-emphasis / paired with a primary — View Profile,
+ *                     View Details, Cancel, Reject (Incoming Requests —
+ *                     a lighter-weight reject than Artisan Verification's),
+ *                     Export Report/CSV, Reply, Remove,
+ *                     Continue with Google, top-nav Login
+ * ghost            : tertiary/text-only — Discard, "Load More Reviews"
+ * icon             : icon-only — notification bell, message/chat icon, help "?"
+ */

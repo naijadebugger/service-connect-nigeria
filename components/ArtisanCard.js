@@ -111,12 +111,6 @@ function SCArtisanCard({
     rev.innerHTML   = `<span aria-hidden="true">★</span> ${reviewCount} reviews`;
     meta.appendChild(rev);
   }
-  if (location) {
-    const loc = document.createElement('span');
-    loc.className   = 'sc-card__meta-item';
-    loc.innerHTML   = `<span aria-hidden="true">📍</span> ${_escape(location)}`;
-    meta.appendChild(loc);
-  }
   if (experience) {
     const exp = document.createElement('span');
     exp.className   = 'sc-card__meta-item';
@@ -125,12 +119,26 @@ function SCArtisanCard({
   }
   if (meta.children.length) body.appendChild(meta);
 
-  // Price
-  if (price !== null) {
-    const priceEl = document.createElement('div');
-    priceEl.className = 'sc-card__price';
-    priceEl.innerHTML = `STARTING FROM <strong>₦${Number(price).toLocaleString()}${priceUnit}</strong>`;
-    body.appendChild(priceEl);
+  // Price + location tag (matches the coloured pill on Search Services cards)
+  if (price !== null || location) {
+    const priceRow = document.createElement('div');
+    priceRow.className = 'sc-card__price-row';
+
+    if (price !== null) {
+      const priceEl = document.createElement('div');
+      priceEl.className = 'sc-card__price';
+      priceEl.innerHTML = `STARTING FROM <strong>₦${Number(price).toLocaleString()}${priceUnit}</strong>`;
+      priceRow.appendChild(priceEl);
+    }
+
+    if (location) {
+      const tag = document.createElement('span');
+      tag.className   = 'sc-card__location-tag';
+      tag.textContent = location;
+      priceRow.appendChild(tag);
+    }
+
+    body.appendChild(priceRow);
   }
 
   card.appendChild(body);
@@ -214,3 +222,13 @@ function _escape(str = '') {
     ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])
   );
 }
+
+/**
+* USAGE MAP
+  SCArtisanCard ('grid')    : Find Expert Artisans / Search Services results
+  grid, Home page "Featured Artisans" section,
+   public Services listing page
+  SCBookingCard ('booking') : My Bookings (Active/Pending/History tabs),
+   Customer Dashboard "Active Bookings" panel
+
+ */

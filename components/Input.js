@@ -172,3 +172,17 @@ function SCInputRaw({
   if (onInput)  el.addEventListener('input',  onInput);
   return el;
 }
+
+/**
+ * USAGE MAP
+ * ────────────────────────────────────────────────────────────────
+ * SCField (labeled)  : Login (email/password), Sign Up (name/email/phone/
+ *                       password/confirm), Account Settings > Personal Info
+ *                       (name/email/phone/service address textarea),
+ *                       Confirm Booking > Problem Description (textarea),
+ *                       Admin > System Settings (Platform Name, Support Email)
+ * SCInputRaw (bare)  : all search bars — portal Navbar search, Home page hero
+ *                       search, Find Artisans / Search Services search,
+ *                       Admin table search + filter bars (User Management,
+ *                       Booking Management, Reviews, Job History)
+ */
