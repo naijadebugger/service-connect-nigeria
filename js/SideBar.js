@@ -118,3 +118,16 @@ function SCSidebar({
 
   return aside;
 }
+
+/**
+ * USAGE MAP — pass a `navItems` override per role; default items above are customer-only
+ * ────────────────────────────────────────────────────────────────
+ * Customer portal : Dashboard, Search Services, My Bookings, Service History,
+ *                    Reviews, Settings  (uses SC_SIDEBAR_DEFAULT_ITEMS as-is)
+ * Artisan portal  : Dashboard, Service Listings, Incoming Requests, Job History,
+ *                    Ratings, Earnings, Settings  (override navItems + brandSub)
+ * Admin portal    : Dashboard, User Management, Artisan Verification,
+ *                    Booking Management, Reviews, Financials, System Settings
+ *                    (override navItems + brandSub; onPostJob usually hidden
+ *                    on admin, since admins don't post jobs)
+ */
