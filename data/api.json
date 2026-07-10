@@ -1,0 +1,137 @@
+{ "artisans": [
+    {
+        "id": 1,
+        "name": "Olawale Bakare",
+        "expertise": "Master Electrician",
+        "experience": "8 years",
+        "rating": 4.9,
+        "location": "Ikeja, Lagos",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Chidinma Okoro",
+        "expertise": "Interior Designer",
+        "experience": "6 years",
+        "rating": 4.7,
+        "location": "Enugu, Enugu State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Abdulrahman Musa",
+        "expertise": "Plumber",
+        "experience": "10 years",
+        "rating": 4.8,
+        "location": "Kano, Kano State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Grace Eze",
+        "expertise": "Tailor",
+        "experience": "5 years",
+        "rating": 4.6,
+        "location": "Onitsha, Anambra",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Samuel Adeyemi",
+        "expertise": "Carpenter",
+        "experience": "9 years",
+        "rating": 4.5,
+        "location": "Ibadan, Oyo State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Fatima Bello",
+        "expertise": "Hair Stylist",
+        "experience": "7 years",
+        "rating": 4.8,
+        "location": "Abuja, FCT",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Emeka Nwosu",
+        "expertise": "Auto Mechanic",
+        "experience": "12 years",
+        "rating": 4.9,
+        "location": "Owerri, Imo State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Aisha Suleiman",
+        "expertise": "Makeup Artist",
+        "experience": "4 years",
+        "rating": 4.6,
+        "location": "Kaduna, Kaduna State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Tunde Ogunleye",
+        "expertise": "Painter",
+        "experience": "11 years",
+        "rating": 4.7,
+        "location": "Abeokuta, Ogun State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Ngozi Umeh",
+        "expertise": "Fashion Designer",
+        "experience": "8 years",
+        "rating": 4.8,
+        "location": "Awka, Anambra",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Ibrahim Yusuf",
+        "expertise": "Welder",
+        "experience": "9 years",
+        "rating": 4.5,
+        "location": "Sokoto, Sokoto State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Blessing Ojo",
+        "expertise": "Event Decorator",
+        "experience": "6 years",
+        "rating": 4.7,
+        "location": "Benin City, Edo State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Chuka Ibe",
+        "expertise": "Barber",
+        "experience": "5 years",
+        "rating": 4.6,
+        "location": "Port Harcourt, Rivers State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Maryam Garba",
+        "expertise": "Chef",
+        "experience": "8 years",
+        "rating": 4.9,
+        "location": "Jos, Plateau State",
+        "image": "../images/blackman-with-suit.jpg"
+    },
+    {
+        "id": 15,
+        "name": "John Etim",
+        "expertise": "Plasterer",
+        "experience": "10 years",
+        "rating": 4.5,
+        "location": "Calabar, Cross River",
+        "image": "../images/blackman-with-suit.jpg"
+    }
+]}
