@@ -147,7 +147,6 @@ background: #F8F9FF;
 }
 
 .topSearch input{
-  /* width: 100%; */
   padding: 12px;
   border-radius: 8px;
   border: 1px solid black;
@@ -194,7 +193,6 @@ background: #F8F9FF;
    border-radius: 10px;
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
   gap: 5px;
   overflow-y: scroll;
    scrollbar-width: none;
@@ -208,6 +206,12 @@ background: #F8F9FF;
   background: white;
   padding: 15px 10px;
 
+ }
+
+ .profile aside{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
  }
 
  .profile img{
@@ -267,9 +271,7 @@ background: #F8F9FF;
   background: var(--color-blue-btn);
   color:      var(--color-white);
  }
- /* .View:active{
-  transform: translateY(1px);
- } */
+
  .Rebook{
   background: var(--color-primary);
   color:      var(--color-white);
@@ -280,10 +282,6 @@ background: #F8F9FF;
   border-color: var(--color-primary-dark);
   box-shadow:   0 4px 14px rgba(245,158,11,.35);
  }
- /* .Rebook:active{
-    transition:  0.3s, color .18s;
-    transform: translateY(1px);
-   } */
 
    small{
     font-weight: lighter;
@@ -332,10 +330,15 @@ background: #F8F9FF;
     }
 
     .profile {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
+        display: flex;
+        flex-direction: column;
         gap: 10px;
-        padding: 9px 10px;
+        padding: 9px 2px;
+    }
+    .profile aside{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
     }
     .btn {
         width: 100%;

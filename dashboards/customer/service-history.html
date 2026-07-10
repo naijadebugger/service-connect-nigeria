@@ -23,14 +23,18 @@
 
   <ul>
     <li><i class="fa-solid fa-qrcode"></i> Dashbord</li>
-    <li><i class="fa fa-magnifying-glass"></i> search Services</li>
-    <li><i class="far fa-calendar"></i> My Bookings</li>
-    <li class="active"><i class="fa-solid fa-clock-rotate-left"></i> service History</li>
-    <li> <i class="fa-solid fa-star-half-stroke"></i> Reviews</li>
+
+    <li><a href="../../dashboards/customer/search.html"><i class="fa fa-magnifying-glass"></i> search Services</a></li>
+
+    <li><a href="../../dashboards/customer/bookings-list.html"><i class="far fa-calendar"></i> My Bookings <a href="../../dashboards/customer/bookings-list.html"></a></li>
+
+    <li class="active"><a href="../../dashboards/customer/service-history.html"><i class="fa-solid fa-clock-rotate-left"></i> service History</a></li>
+
+    <li><a href="../../dashboards/customer/reviews.html"> <i class="fa-solid fa-star-half-stroke"></i> Reviews </a></li>
     </ul>
 
-    <div class="settings">
-       <i class="fa-solid fa-gear"></i> <span> Settings</span></div>
+    <div class="settings"><a href="../../dashboards/customer/settings.html">
+       <i class="fa-solid fa-gear"></i> <span> Settings</span> </a></div>
   </ul>
 
  </div>
@@ -38,14 +42,14 @@
 
   <main class="mainContent">
     <div class="topSearch">
-      <input class="sc-input--error" type="text" placeholder="search...">
+      <input id="generalFilter" class="sc-input--error" type="text" placeholder="search...">
       <hr>
     </div>
 
     <h1>Service History</h1>
 
     <div class="filterArtisan">
-       <input class="sc-input--error" type="text" placeholder="search by Artisan or service" name="" id="">
+       <input id="artisanFilter" class="sc-input--error" type="text" placeholder="search by Artisan or service" name="" id="">
        <div>
        <select name="" id="dateFilter" >
         <option value="">All dates</option>
@@ -62,5 +66,6 @@
   </main>
 
   <script src="../../js/servicehistory.js"></script>
+  <script type="module" src="../../js/api.js"></script>
 </body>
 </html>

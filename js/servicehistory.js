@@ -4,102 +4,79 @@ const menuBtn = document.getElementById("menu");
 const sidebar = document.querySelector(".sideBar");
 console.log(menuBtn)
 
- console.log(historyCard)
-
  menuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("show");
 });
+const artisanFilter = document.getElementById("artisanFilter");
+const generalFilter = document.getElementById("generalFilter");
+const dateFilter = document.getElementById("dateFilter");
+const categoryFilter = document.getElementById("categoryFilter");
 
-let user = [
-  {
-  id:1,
-  name: "Tayo",
-  service: "Tailoring",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image: "https://picsum.photos/900"
-  },
 
-  {
-  id:2,
-  name: "Buike",
-  service: "Chef",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
- image: "https://picsum.photos/600"
-  },
+let serviceHistory = [
 {
-  id:3,
-  name: "Ayo",
-  service: "Bricklayer",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image: "https://picsum.photos/100"
+    id: "SH-001",
+    artisanName: "Oluwaseun Adebayo",
+    trade: "Plumbing",
+    avatar: "https://ui-avatars.com/api/?name=Oluwaseun+Adebayo&background=0B2240&color=fff",
+    date: "Oct 15, 2023",
+    amount: 15000,
+    rating: 5,
+    status: "Completed",
   },
-
   {
-  id:1,
-  name: "Ada",
-  service: "Baker",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image: "https://picsum.photos/500"
-},
-  {
-  id:1,
-  name: "Obi",
-  service: "Carpenter",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
- image: "https://picsum.photos/400",
+    id: "SH-002",
+    artisanName: "Ngozi Chukwu",
+    trade: "Electrical",
+    avatar: "https://ui-avatars.com/api/?name=Ngozi+Chukwu&background=FF8C00&color=fff",
+    date: "Sep 28, 2023",
+    amount: 22500,
+    rating: 2,
+    status: "Completed",
   },
-
   {
-  id:1,
-  name: "Nnamdi",
-  service: "Sales rep",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image:"https://picsum.photos/300",
+    id: "SH-003",
+    artisanName: "Chinedu Okafor",
+    trade: "Cleaning",
+    avatar: "https://ui-avatars.com/api/?name=Chinedu+Okafor&background=1D3557&color=fff",
+    date: "Aug 12, 2023",
+    amount: 8000,
+    rating: 3,
+    status: "Completed",
   },
-
   {
-  id:1,
-  name: "Zikora",
-  service: "Electrictian",
-  date:"oct 15, 2023",
-  amount: "$15000",
-  rating: 5,
-  status: "completed",
-  image:"https://picsum.photos/200",
+    id: "SH-004",
+    artisanName: "Tunde Bakare",
+    trade: "Carpentry",
+    avatar: "https://ui-avatars.com/api/?name=Tunde+Bakare&background=0B2240&color=fff",
+    date: "Jul 04, 2023",
+    amount: 35000,
+    rating: 5,
+    status: "Completed",
   },
-
-
+  {
+    id: "SH-005",
+    artisanName: "Bisi Akande",
+    trade: "AC Maintenance",
+    avatar: "https://ui-avatars.com/api/?name=Bisi+Akande&background=FF8C00&color=fff",
+    date: "Jun 18, 2023",
+    amount: 12000,
+    rating: 4,
+    status: "Completed",
+  },
 ];
-console.log(historyCard)
-// let newUsers = user.find((items) => items.id == id);
 
-// const display = document.getElementById("serviceConnect");
-historyCard.innerHTML = user
+function renderCards(serviceHistory){
+
+historyCard.innerHTML = serviceHistory
 .map((item) => { 
   return`
-<div class="profile">
-          <img src="${item.image}" alt="">
+<section class="profile">
+<aside>
+          <img src="${item.avatar}" alt="${item.artisanName}">
         <div>
-          <p>${item.name}</p>
-          <p>${item.service}</p>
+          <p>${item.artisanName}</p>
+          <p>${item.trade}</p>
         </div>
         <div>
         <small>DATE</small>
@@ -113,12 +90,112 @@ historyCard.innerHTML = user
           <p>${"*".repeat(item.rating)}</p>
         </div>
         <div class="status"> ${item.status}</div>
+        </div>
+        </aside>
         <div class="btn">
           <button class="View">View Details</button>
           <button class="Rebook">Rebook Artisan</button>
-        </div>
-      </div>
+          </div>
+      </section>
  ` ;
  })
  .join("");
+}
+renderCards(serviceHistory)
+
+ const category = [... new Set(serviceHistory.map(item => item.trade))];
+
+ category.forEach(trade => {
+  categoryFilter.innerHTML += `
+  <option value = "${trade}">
+  ${trade}
+  </option>`;
+
+  categoryFilter.addEventListener("change", () => {
+
+    const selectedTrade = categoryFilter.value;
+
+    if (selectedTrade === "all") {
+        renderCards(serviceHistory);
+        return;
+    }
+
+    const filtered = serviceHistory.filter(item =>
+        item.trade === selectedTrade
+    );
+
+    renderCards(filtered);
+
+});
+ });
+
+ const date =[... new Set(serviceHistory.map(item => item.date))];
+ date.forEach(date => {
+    dateFilter.innerHTML += `
+        <option value="${date}">
+            ${date}
+        </option>
+    `;
+    dateFilter.addEventListener("change", () => {
+
+    const selectedDate = dateFilter.value;
+
+    if (selectedDate === "all") {
+        renderCards(serviceHistory);
+        return;
+    }
+
+    const filtered = serviceHistory.filter(item =>
+        item.date === selectedDate
+    );
+
+    renderCards(filtered);
+
+});
+ });
+
+ artisanFilter.addEventListener("input", () => {
+
+    const search = artisanFilter.value.toLowerCase().trim();
+
+    const sorted = [...serviceHistory].sort((a, b) => {
+
+        const aMatch =
+            a.artisanName.toLowerCase().includes(search) ||
+            a.trade.toLowerCase().includes(search);
+
+        const bMatch =
+            b.artisanName.toLowerCase().includes(search) ||
+            b.trade.toLowerCase().includes(search);
+
+        return bMatch - aMatch;
+    });
+
+    renderCards(sorted);
+
+});
+
+ generalFilter.addEventListener("input", () => {
+
+    const search = generalFilter.value.toLowerCase();
+
+    const sorted = [...serviceHistory].sort((a, b) => {
+
+        const aMatch =
+            a.artisanName.toLowerCase().includes(search) ||
+            a.trade.toLowerCase().includes(search) ||
+            a.date.toLowerCase().includes(search);
+
+        const bMatch =
+            b.artisanName.toLowerCase().includes(search) ||
+            b.trade.toLowerCase().includes(search) ||
+            b.date.toLowerCase().includes(search);
+
+        return bMatch - aMatch;
+    });
+
+    renderCards(sorted);
+
+});
+
 console.log(historyCard)
