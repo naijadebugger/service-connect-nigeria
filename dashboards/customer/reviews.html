@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Reviews - ServiceConnect</title>
+
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/sidebar.css" />
+  <link rel="stylesheet" href="../../css/navbar.css" />
+  <link rel="stylesheet" href="../../css/button.css" />
+  <link rel="stylesheet" href="../../css/Avatar.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/reviews.css" />
+</head>
+<body>
+  <div class="sc-layout">
+    <div class="sc-main">
+      <main class="sc-page-content">
+        <header class="reviews-header">
+          <h1 class="reviews-header-title">Service Reviews</h1>
+          <p class="reviews-header-subtitle">Manage your feedback and review past service experiences</p>
+        </header>
+
+        <section class="reviews-section" aria-labelledby="pending-heading">
+          <h2 id="pending-heading" class="reviews-section-title">Pending Reviews</h2>
+          <div id="pending-list" class="reviews-list"></div>
+        </section>
+
+        <section class="reviews-section" aria-labelledby="past-heading">
+          <h2 id="past-heading" class="reviews-section-title">Past Reviews</h2>
+          <div id="past-list" class="reviews-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/Avatar.js"></script>
+  <script src="../../js/Button.js"></script>
+  <script src="../../js/SideBar.js"></script>
+  <script src="../../js/NavBar.js"></script>
+  <script src="../../js/customer/reviews.js"></script>
+</body>
+</html>
