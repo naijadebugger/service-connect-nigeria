@@ -4,6 +4,8 @@ import {
     users,
 } from '../api.js'
 
+import { SCBadgeFromStatus } from '../components/SCBadge.js';
+
 // ─── Helpers ───────────────────────────────────────
 const fmt = (n) => n.toLocaleString('en-NG');
 
@@ -196,7 +198,7 @@ activityList.insertAdjacentHTML('beforeend', `
         <p class="admin-activity-item__meta">${b.customer} → ${b.artisan ?? 'Unassigned'} · ${b.date}</p>
     </div>
     <div class="admin-activity-item__right">
-        <span class="admin-badge ${statusClass}">${b.status}</span>
+        ${SCBadgeFromStatus(b.status).outerHTML}
         <span class="admin-activity-item__amount">₦${fmt(b.amount)}</span>
     </div>
     </li>

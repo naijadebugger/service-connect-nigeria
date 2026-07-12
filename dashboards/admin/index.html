@@ -1,12 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Platform Overview | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- (Platform Overview Analytics) -->
-    
+
+<div class="sc-layout">
+
+  <!-- ═══════════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════════════ -->
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">
+        ＋ Post a Job
+      </button>
+      <button class="sc-sidebar__logout">
+        <span>↩</span>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════ -->
+  <div class="sc-main">
+
+    <!-- TOP NAVBAR -->
+    <header class="sc-navbar">
+      <span class="sr-only">Admin Central</span>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input
+          class="sc-navbar__search-input"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search platform"
+        />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn" aria-label="Notifications">
+          🔔
+          <span class="sc-navbar__badge"></span>
+        </button>
+        <button class="sc-navbar__icon-btn" aria-label="Settings">⚙</button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img
+            class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin avatar"
+            width="36"
+            height="36"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="sc-page-content">
+
+      <!-- Page heading -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Platform Overview</h1>
+          <p class="admin-page-sub">Monitor key metrics and recent activity across ServiceConnect.</p>
+        </div>
+        <div class="admin-page-actions">
+          <select class="admin-period-select" id="periodSelect" aria-label="Select time period">
+            <option value="30">Last 30 Days</option>
+            <option value="7">Last 7 Days</option>
+            <option value="90">Last 90 Days</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- STAT CARDS -->
+      <div class="admin-stats-grid" id="statsGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- CHARTS ROW -->
+      <div class="admin-charts-row">
+
+        <!-- Platform Growth Chart -->
+        <div class="admin-chart-card admin-chart-card--wide">
+          <div class="admin-chart-card__header">
+            <h2 class="admin-chart-card__title">Platform Growth</h2>
+            <button class="admin-chart-card__menu" aria-label="Chart options">⋮</button>
+          </div>
+          <div class="admin-chart-legend">
+            <span class="admin-legend-item admin-legend-item--navy">Users</span>
+            <span class="admin-legend-item admin-legend-item--orange">Artisans</span>
+          </div>
+          <div class="admin-chart-area">
+            <canvas id="growthChart" height="220" aria-label="Platform growth line chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Booking Status Donut -->
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__header">
+            <h2 class="admin-chart-card__title">Booking Status</h2>
+            <button class="admin-chart-card__menu" aria-label="Chart options">⋮</button>
+          </div>
+          <div class="admin-donut-wrap">
+            <canvas id="bookingDonut" width="180" height="180" aria-label="Booking status donut chart"></canvas>
+          </div>
+          <ul class="admin-donut-legend" id="donutLegend">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- RECENT ACTIVITY -->
+      <div class="admin-activity-card">
+        <div class="admin-activity-card__header">
+          <h2 class="admin-chart-card__title">Recent Activity</h2>
+          <a href="#" class="admin-view-all">View All</a>
+        </div>
+        <ul class="admin-activity-list" id="activityList">
+          <!-- Populated by JS -->
+        </ul>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+
+
 </body>
 </html>

@@ -1,11 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Financials | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- Financial Payout Controller -->
+
+<div class="sc-layout">
+
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout"><span>↩</span><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <div class="sc-main">
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">Marketplace Admin</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input class="sc-navbar__search-input" type="search" placeholder="Search transactions..." />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+        <button class="sc-navbar__icon-btn">❓</button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin" width="36" height="36" />
+        </div>
+      </div>
+    </header>
+
+    <main class="sc-page-content">
+
+      <div class="admin-page-header">
+        <div>
+          <p class="admin-page-sub">Financial Overview</p>
+          <p class="admin-page-sub">Real-time revenue monitoring and payout management for ServiceConnect Nigeria.</p>
+        </div>
+        <div class="admin-page-actions">
+          <button class="sc-btn sc-btn--outline">⬇ Export Report</button>
+          <button class="sc-btn sc-btn--primary" id="processPayoutsBtn">Process All Payouts</button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="admin-stats-grid" id="financialStats"></div>
+
+      <!-- Charts Row -->
+      <div class="admin-charts-row">
+        <div class="admin-chart-card admin-chart-card--wide">
+          <div class="admin-chart-card__header">
+            <h2 class="admin-chart-card__title">Monthly Revenue Trend</h2>
+            <select class="admin-period-select" style="font-size:var(--font-xs);">
+              <option>Last 6 Months</option>
+            </select>
+          </div>
+          <div class="admin-chart-area">
+            <canvas id="revenueChart" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="admin-chart-card">
+          <div class="admin-chart-card__header">
+            <h2 class="admin-chart-card__title">Revenue by Category</h2>
+          </div>
+          <div class="admin-donut-wrap">
+            <canvas id="categoryDonut" width="180" height="180"></canvas>
+          </div>
+          <ul class="admin-donut-legend" id="categoryLegend"></ul>
+        </div>
+      </div>
+
+      <!-- Transaction Log -->
+      <div class="admin-table-card">
+        <div class="admin-activity-card__header" style="padding: var(--space-5) var(--space-6) 0;">
+          <h2 class="admin-chart-card__title">Transaction Log</h2>
+          <div class="admin-table-actions">
+            <button class="admin-table-action" aria-label="Filter">⚙</button>
+            <button class="admin-table-action" aria-label="More">⋮</button>
+          </div>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>TRANSACTION ID</th>
+              <th>DATE</th>
+              <th>SERVICE TYPE</th>
+              <th>ARTISAN</th>
+              <th>CUSTOMER</th>
+              <th>AMOUNT</th>
+              <th>COMMISSION</th>
+            </tr>
+          </thead>
+          <tbody id="txnTableBody"></tbody>
+        </table>
+        <div class="admin-table-footer">
+          <p class="admin-table-count" id="txnCount"></p>
+          <div class="admin-pagination">
+            <button class="admin-pagination__btn">‹</button>
+            <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
+            <button class="admin-pagination__btn">2</button>
+            <button class="admin-pagination__btn">3</button>
+            <button class="admin-pagination__btn">›</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+    <script src="../../js/admin/financials.js"></script>
 </body>
 </html>

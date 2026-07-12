@@ -1,11 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — System Settings | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- Maintenance Mode System Settings -->
+
+<div class="sc-layout">
+
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout">
+        <span>↩</span><span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="sc-main">
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">Admin Portal</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input class="sc-navbar__search-input" type="search"
+          placeholder="Search settings or tools..." />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+        <button class="sc-navbar__icon-btn">❓</button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin" width="36" height="36" />
+          <div class="sc-navbar__user-info">
+            <p class="sc-navbar__user-name">Admin User</p>
+            <p class="sc-navbar__user-role">Super Admin</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="sc-page-content">
+
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">System Settings</h1>
+          <p class="admin-page-sub">Manage your platform parameters, security, and service architecture.</p>
+        </div>
+      </div>
+
+      <div class="settings-layout">
+
+        <!-- Settings Sub-Nav -->
+        <nav class="settings-subnav" aria-label="Settings sections">
+          <button class="settings-subnav__item settings-subnav__item--active" data-panel="general">
+            <span>⚙</span> General Settings
+          </button>
+          <button class="settings-subnav__item" data-panel="service">
+            <span>🔧</span> Service Management
+          </button>
+          <button class="settings-subnav__item" data-panel="pricing">
+            <span>💰</span> Pricing & Commissions
+          </button>
+          <button class="settings-subnav__item" data-panel="notifications">
+            <span>🔔</span> Notifications
+          </button>
+          <button class="settings-subnav__item" data-panel="security">
+            <span>🛡</span> Security
+          </button>
+        </nav>
+
+        <!-- Settings Panels -->
+        <div class="settings-panels">
+
+          <!-- General Settings -->
+          <div class="settings-panel" id="panel-general">
+            <div class="settings-panel__head">
+              <h2 class="settings-panel__title">General Platform Settings</h2>
+              <span class="admin-badge admin-badge--navy">PUBLIC IDENTITY</span>
+            </div>
+
+            <div class="settings-form">
+              <div class="settings-form__row">
+                <div class="sc-field">
+                  <label class="sc-field__label" for="platformName">Platform Name</label>
+                  <input class="sc-input" id="platformName" type="text"
+                    value="ServiceConnect Nigeria" />
+                </div>
+                <div class="sc-field">
+                  <label class="sc-field__label" for="supportEmail">Support Email Address</label>
+                  <input class="sc-input" id="supportEmail" type="email"
+                    value="support@serviceconnect.com.ng" />
+                </div>
+              </div>
+
+              <div class="settings-maintenance">
+                <div class="settings-maintenance__info">
+                  <p class="settings-maintenance__title">Maintenance Mode</p>
+                  <p class="settings-maintenance__sub">
+                    Temporarily disable public access while updates are in progress.
+                  </p>
+                </div>
+                <label class="settings-toggle" aria-label="Toggle maintenance mode">
+                  <input type="checkbox" id="maintenanceToggle" />
+                  <span class="settings-toggle__track">
+                    <span class="settings-toggle__thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="sc-field">
+                <label class="sc-field__label">Platform Logo</label>
+                <div class="settings-logo-upload">
+                  <div class="settings-logo-upload__preview">
+                    <img
+                      id="logoPreview"
+                      src="https://ui-avatars.com/api/?name=SC&background=0B2240&color=fff&size=80"
+                      alt="Platform logo" width="80" height="80"
+                    />
+                  </div>
+                  <div class="settings-logo-upload__info">
+                    <p class="settings-logo-upload__title">Replace Brand Logo</p>
+                    <p class="settings-logo-upload__sub">
+                      Recommended size: 512×512px. Max file size: 2MB.
+                    </p>
+                    <label class="settings-logo-upload__btn sc-btn sc-btn--ghost">
+                      ⬆ Change Image
+                      <input type="file" accept="image/*" id="logoInput" hidden />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-form__footer">
+                <p class="settings-form__timestamp" id="lastUpdated"></p>
+                <div class="admin-page-actions">
+                  <button class="sc-btn sc-btn--outline" id="discardBtn">Discard</button>
+                  <button class="sc-btn sc-btn--primary" id="saveBtn">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Management (placeholder) -->
+          <div class="settings-panel settings-panel--hidden" id="panel-service">
+            <div class="settings-panel__head">
+              <h2 class="settings-panel__title">Service Management</h2>
+            </div>
+            <p class="settings-placeholder">Service configuration options will appear here.</p>
+          </div>
+
+          <!-- Pricing (placeholder) -->
+          <div class="settings-panel settings-panel--hidden" id="panel-pricing">
+            <div class="settings-panel__head">
+              <h2 class="settings-panel__title">Pricing & Commissions</h2>
+            </div>
+            <div class="settings-form">
+              <div class="sc-field">
+                <label class="sc-field__label" for="commissionRate">
+                  Platform Commission Rate (%)
+                </label>
+                <input class="sc-input" id="commissionRate" type="number"
+                  value="15" min="0" max="100" />
+              </div>
+              <div class="settings-form__footer">
+                <div></div>
+                <button class="sc-btn sc-btn--primary">Save Changes</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications (placeholder) -->
+          <div class="settings-panel settings-panel--hidden" id="panel-notifications">
+            <div class="settings-panel__head">
+              <h2 class="settings-panel__title">Notifications</h2>
+            </div>
+            <p class="settings-placeholder">Notification configuration will appear here.</p>
+          </div>
+
+          <!-- Security (placeholder) -->
+          <div class="settings-panel settings-panel--hidden" id="panel-security">
+            <div class="settings-panel__head">
+              <h2 class="settings-panel__title">Security</h2>
+            </div>
+            <p class="settings-placeholder">Security settings will appear here.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+    <script src="../../js/admin/settings.js"></script>
 </body>
 </html>

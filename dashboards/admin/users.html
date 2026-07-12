@@ -1,11 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - User Management | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- User Management Directory Grid -->
+
+<div class="sc-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout">
+        <span>↩</span><span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="sc-main">
+
+    <!-- NAVBAR -->
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">ServiceConnect Admin</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input
+          class="sc-navbar__search-input"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search platform"
+        />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn" aria-label="Notifications">
+          🔔
+          <span class="sc-navbar__badge"></span>
+        </button>
+        <button class="sc-navbar__icon-btn" aria-label="Help">❓</button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img
+            class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin avatar"
+            width="36" height="36"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="sc-page-content">
+
+      <!-- Page heading -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">User Management</h1>
+          <p class="admin-page-sub">Manage customers and artisans on the ServiceConnect platform.</p>
+        </div>
+        <button class="sc-btn sc-btn--navy" id="inviteBtn">
+          👤 Invite User
+        </button>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="admin-filter-bar">
+        <div class="sc-field__wrapper admin-filter-search">
+          <span class="sc-field__icon sc-field__icon--left">🔍</span>
+          <input
+            id="userSearch"
+            class="sc-input sc-input--icon-left"
+            type="search"
+            placeholder="Search by name, email, or ID..."
+            aria-label="Search users"
+          />
+        </div>
+        <select class="admin-filter-select" id="roleFilter" aria-label="Filter by role">
+          <option value="">All Roles</option>
+          <option value="Customer">Customer</option>
+          <option value="Artisan">Artisan</option>
+        </select>
+        <select class="admin-filter-select" id="statusFilter" aria-label="Filter by status">
+          <option value="">All Statuses</option>
+          <option value="Active">Active</option>
+          <option value="Suspended">Suspended</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="admin-table-card">
+        <table class="admin-table" aria-label="Users table">
+          <thead>
+            <tr>
+              <th>USER</th>
+              <th>ROLE</th>
+              <th>DATE JOINED</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="admin-table-footer">
+          <p class="admin-table-count" id="tableCount"></p>
+          <div class="admin-pagination" id="pagination">
+            <button class="admin-pagination__btn" aria-label="Previous page">‹</button>
+            <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
+            <button class="admin-pagination__btn">2</button>
+            <button class="admin-pagination__btn">3</button>
+            <span class="admin-pagination__ellipsis">...</span>
+            <button class="admin-pagination__btn">10</button>
+            <button class="admin-pagination__btn" aria-label="Next page">›</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+
+
 </body>
 </html>
