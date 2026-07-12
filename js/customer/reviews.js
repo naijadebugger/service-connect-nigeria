@@ -1,41 +1,26 @@
-const pendingReviews = [
-  { name: "Oluwaseun Adeyemi", service: "Plumbing • Leak Repair", completed: "Oct 24, 2023", photo: "../../assets/oluwaseun.jpg" },
-  { name: "Chinedu Okafor", service: "Electrical • Wiring Install", completed: "Oct 20, 2023", photo: "../../assets/chinedu.jpg" }
-];
-
-const pastReviews = [
-  { name: "Tunde Bakare", trade: "Carpentry", text: "Excellent work building the custom shelves for my living room. Very professional, and cleaned up after the job. Highly recommend.", reviewedOn: "Sep 15, 2023", photo: "../../assets/tunde.jpg" }
-];
-
-function renderSidebar() {
-  const sidebar = SCSidebar({ activeItem: "Reviews" });
-  document.querySelector(".sc-layout").prepend(sidebar);
-}
-
-function renderNavbar() {
-  const navbar = SCNavbar({
-    variant: "portal",
-    user: { name: "Amara N.", role: "Customer", avatarUrl: "" },
-    hasNotification: true
-  });
-  document.querySelector(".sc-main").prepend(navbar);
-}
+import { pendingReviews, pastReviews } from '../../js/api.js';
 
 function renderPending() {
   const list = document.getElementById("pending-list");
   pendingReviews.forEach((review) => {
     const card = document.createElement("article");
     card.className = "review-item";
-    card.append(SCAvatar({ src: review.photo, name: review.name, size: "md" }));
+
+    const avatar = document.createElement("img");
+    avatar.className = "review-item-avatar";
+    avatar.src = review.artisanAvatar;
+    avatar.alt = review.artisanName;
+    avatar.width = 48;
+    avatar.height = 48;
 
     const body = document.createElement("div");
     body.className = "review-item-body";
     body.innerHTML =
-      '<h3 class="review-item-name">' + review.name + "</h3>" +
-      '<p class="review-item-sub">' + review.service + "</p>" +
-      '<p class="review-item-date">Completed: ' + review.completed + "</p>";
+      '<h3 class="review-item-name">' + review.artisanName + "</h3>" +
+      '<p class="review-item-sub">' + review.trade + " • " + review.serviceType + "</p>" +
+      '<p class="review-item-date">Completed: ' + review.completedDate + "</p>";
 
-    card.append(body);
+    card.append(avatar, body);
     list.append(card);
   });
 }
@@ -48,17 +33,24 @@ function renderPast() {
 
     const head = document.createElement("div");
     head.className = "review-item-head";
-    head.append(SCAvatar({ src: review.photo, name: review.name, size: "sm" }));
+
+    const avatar = document.createElement("img");
+    avatar.className = "review-item-avatar";
+    avatar.src = review.artisanAvatar;
+    avatar.alt = review.artisanName;
+    avatar.width = 40;
+    avatar.height = 40;
 
     const who = document.createElement("div");
     who.innerHTML =
-      '<h3 class="review-item-name">' + review.name + "</h3>" +
+      '<h3 class="review-item-name">' + review.artisanName + "</h3>" +
       '<p class="review-item-sub">' + review.trade + "</p>";
-    head.append(who);
+
+    head.append(avatar, who);
 
     const text = document.createElement("p");
     text.className = "review-item-text";
-    text.textContent = '"' + review.text + '"';
+    text.textContent = '"' + review.reviewText + '"';
 
     const date = document.createElement("p");
     date.className = "review-item-date";
@@ -69,7 +61,5 @@ function renderPast() {
   });
 }
 
-renderSidebar();
-renderNavbar();
 renderPending();
 renderPast();
