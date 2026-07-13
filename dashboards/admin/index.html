@@ -12,9 +12,7 @@
 
 <div class="sc-layout">
 
-  <!-- ═══════════════════════════════════════════
-       SIDEBAR
-  ══════════════════════════════════════════════ -->
+  <!-- SIDEBAR -->
   <aside class="sc-sidebar">
     <div class="sc-sidebar__brand">
       <div class="sc-sidebar__brand-icon">⚙</div>
@@ -56,9 +54,7 @@
     </nav>
 
     <div class="sc-sidebar__bottom">
-      <button class="sc-sidebar__cta">
-        ＋ Post a Job
-      </button>
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
       <button class="sc-sidebar__logout">
         <span>↩</span>
         <span>Logout</span>
@@ -66,9 +62,7 @@
     </div>
   </aside>
 
-  <!-- ═══════════════════════════════════════════
-       MAIN CONTENT
-  ══════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT -->
   <div class="sc-main">
 
     <!-- TOP NAVBAR -->
@@ -79,7 +73,7 @@
         <input
           class="sc-navbar__search-input"
           type="search"
-          placeholder="Search..."
+          placeholder="Search platform..."
           aria-label="Search platform"
         />
       </div>
@@ -104,8 +98,6 @@
 
     <!-- PAGE CONTENT -->
     <main class="sc-page-content">
-
-      <!-- Page heading -->
       <div class="admin-page-header">
         <div>
           <h1 class="admin-page-title">Platform Overview</h1>
@@ -121,13 +113,10 @@
       </div>
 
       <!-- STAT CARDS -->
-      <div class="admin-stats-grid" id="statsGrid">
-        <!-- Populated by JS -->
-      </div>
+      <div class="admin-stats-grid" id="statsGrid"></div>
 
       <!-- CHARTS ROW -->
       <div class="admin-charts-row">
-
         <!-- Platform Growth Chart -->
         <div class="admin-chart-card admin-chart-card--wide">
           <div class="admin-chart-card__header">
@@ -152,11 +141,8 @@
           <div class="admin-donut-wrap">
             <canvas id="bookingDonut" width="180" height="180" aria-label="Booking status donut chart"></canvas>
           </div>
-          <ul class="admin-donut-legend" id="donutLegend">
-            <!-- Populated by JS -->
-          </ul>
+          <ul class="admin-donut-legend" id="donutLegend"></ul>
         </div>
-
       </div>
 
       <!-- RECENT ACTIVITY -->
@@ -165,16 +151,13 @@
           <h2 class="admin-chart-card__title">Recent Activity</h2>
           <a href="#" class="admin-view-all">View All</a>
         </div>
-        <ul class="admin-activity-list" id="activityList">
-          <!-- Populated by JS -->
-        </ul>
+        <ul class="admin-activity-list" id="activityList"></ul>
       </div>
-
     </main>
   </div>
 </div>
 
-
-
+  <!-- MODULE LIFE-CYCLE LINK -->
+  <script type="module" src="../../js/admin/admin-overview.js"></script>
 </body>
 </html>
