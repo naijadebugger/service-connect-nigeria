@@ -4,7 +4,8 @@ function renderPending() {
   const list = document.getElementById("pending-list");
   pendingReviews.forEach((review) => {
     const card = document.createElement("article");
-    card.className = "review-item";
+    // added 'sc-card' design system token class
+    card.className = "sc-card review-item";
 
     const avatar = document.createElement("img");
     avatar.className = "review-item-avatar";
@@ -29,7 +30,8 @@ function renderPast() {
   const list = document.getElementById("past-list");
   pastReviews.forEach((review) => {
     const card = document.createElement("article");
-    card.className = "review-item review-item-past";
+    // Added 'sc-card' design system token class
+    card.className = "sc-card review-item review-item-past";
 
     const head = document.createElement("div");
     head.className = "review-item-head";
