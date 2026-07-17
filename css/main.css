@@ -1,5 +1,7 @@
 
    /* ServiceConnect Nigeria — Design Tokens & Global Styles */
+/* ServiceConnect Nigeria — Design Tokens & Global Styles */
+  
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -7,6 +9,10 @@
   /* — Colours — */
   --color-primary:       #F59E0B;   /* orange CTA */
   --color-primary-dark:  #D97706;
+  --color-danger:        #EF4444;   /* destructive actions e.g. Reject */
+  --color-danger-dark:   #DC2626;
+  --color-success:       #10B981;   /* affirmative actions e.g. Approve */
+  --color-success-dark:  #059669;
   --color-navy:          #0F172A;   /* sidebar bg */
   --color-navy-mid:      #1E293B;   /* sidebar hover */
   --color-navy-light:    #334155;

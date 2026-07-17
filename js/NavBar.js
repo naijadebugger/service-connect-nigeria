@@ -187,3 +187,17 @@ function _escape(str = '') {
     ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])
   );
 }
+
+/**
+ * USAGE MAP
+ * ────────────────────────────────────────────────────────────────
+ * variant 'public' : Home, Services listing, Public Artisan Profile,
+ *                     Login, Sign Up, Role selection page
+ * variant 'portal' : every logged-in dashboard-style page — Customer
+ *                     (Dashboard, Search Services, My Bookings, Service
+ *                     History, Reviews, Settings), Artisan (Dashboard,
+ *                     Service Listings, Incoming Requests, Job History,
+ *                     Ratings, Earnings), Admin (Dashboard, User Management,
+ *                     Artisan Verification, Booking Management, Reviews,
+ *                     Financials, System Settings)
+ */
