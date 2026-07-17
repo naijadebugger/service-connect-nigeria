@@ -1,3 +1,8 @@
+
+   /* ServiceConnect Nigeria — Design Tokens & Global Styles */
+/* ServiceConnect Nigeria — Design Tokens & Global Styles */
+  
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 
@@ -17,6 +22,7 @@
     --color-text-primary:  #0F172A;
     --color-text-secondary:#64748B;
     --color-text-muted:    #94A3B8;
+  
 
   /* Status colours */
     --color-status-progress-bg:  #EFF6FF;

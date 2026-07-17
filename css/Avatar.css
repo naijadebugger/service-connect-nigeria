@@ -1,0 +1,39 @@
+/* Avatar Component Styles */
+
+.sc-avatar {
+  position:       relative;
+  border-radius:  50%;
+  overflow:       hidden;
+  flex-shrink:    0;
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  font-weight:    600;
+  color:          var(--color-white);
+  text-transform: uppercase;
+}
+
+.sc-avatar img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+/* — Sizes — */
+.sc-avatar--sm { width: 32px; height: 32px; font-size: var(--font-xs); }
+.sc-avatar--md { width: 40px; height: 40px; font-size: var(--font-sm); }
+.sc-avatar--lg { width: 56px; height: 56px; font-size: var(--font-base); }
+
+/* — Presence dot — */
+.sc-avatar__status {
+  position:      absolute;
+  right:         2px;
+  bottom:        2px;
+  width:         10px;
+  height:        10px;
+  border-radius: 50%;
+  border:        2px solid var(--color-white);
+}
+.sc-avatar__status--online {
+  background: var(--color-status-success-text);
+}

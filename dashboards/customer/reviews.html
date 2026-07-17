@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Reviews - ServiceConnect</title>
+
+  <link rel="stylesheet" href="../../css/main.css" />
+<link rel="stylesheet" href="../../css/sidebar.css" />
+<link rel="stylesheet" href="../../css/navbar.css" />
+<link rel="stylesheet" href="../../css/components.css" />
+<link rel="stylesheet" href="../../css/reviews.css" />
+</head>
+<body>
+  <div class="sc-layout">
+    <aside class="sc-sidebar">
+      <div class="sc-sidebar__brand">
+        <div class="sc-sidebar__brand-icon">⚙</div>
+        <div class="sc-sidebar__brand-text">
+          <span class="sc-sidebar__brand-name">ServiceConnect</span>
+          <span class="sc-sidebar__brand-sub">Customer Portal</span>
+        </div>
+      </div>
+      <nav class="sc-sidebar__nav">
+        <a href="index.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">▦</span>
+          <span class="sc-sidebar__nav-label">Dashboard</span>
+        </a>
+        <a href="search.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">🔍</span>
+          <span class="sc-sidebar__nav-label">Search Services</span>
+        </a>
+        <a href="bookings.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">📅</span>
+          <span class="sc-sidebar__nav-label">My Bookings</span>
+        </a>
+        <a href="service-history.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">🕐</span>
+          <span class="sc-sidebar__nav-label">Service History</span>
+        </a>
+        <a href="reviews.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+          <span class="sc-sidebar__nav-icon">★</span>
+          <span class="sc-sidebar__nav-label">Reviews</span>
+        </a>
+        <a href="settings.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">⚙</span>
+          <span class="sc-sidebar__nav-label">Settings</span>
+        </a>
+      </nav>
+      <div class="sc-sidebar__bottom">
+        <button class="sc-sidebar__cta">+ Post a Job</button>
+      </div>
+    </aside>
+
+    <div class="sc-main">
+      <header class="sc-navbar">
+        <div class="sc-navbar__search">
+          <span class="sc-navbar__search-icon">🔍</span>
+          <input class="sc-navbar__search-input" type="search" placeholder="Search artisans, services..." />
+        </div>
+        <div class="sc-navbar__actions">
+          <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+          <button class="sc-navbar__icon-btn">❓</button>
+          <div class="sc-navbar__divider"></div>
+          <div class="sc-navbar__user">
+            <img class="admin-avatar" src="https://ui-avatars.com/api/?name=Amara+N&background=0B2240&color=fff&size=36" alt="User avatar" width="36" height="36" />
+          </div>
+        </div>
+      </header>
+
+      <main class="sc-page-content">
+        <header class="reviews-header">
+          <h1 class="reviews-header-title">Service Reviews</h1>
+          <p class="reviews-header-subtitle">Manage your feedback and review past service experiences</p>
+        </header>
+
+        <section class="reviews-section" aria-labelledby="pending-heading">
+          <h2 id="pending-heading" class="reviews-section-title">Pending Reviews</h2>
+          <div id="pending-list" class="reviews-list"></div>
+        </section>
+
+        <section class="reviews-section" aria-labelledby="past-heading">
+          <h2 id="past-heading" class="reviews-section-title">Past Reviews</h2>
+          <div id="past-list" class="reviews-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/customer/reviews.js"></script>
+</body>
+</html>
