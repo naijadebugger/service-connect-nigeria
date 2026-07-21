@@ -22,6 +22,7 @@ fetch(apiUrl)
 .then(data => {
     const artisans = data.artisans;
     const totalPages = Math.ceil(artisans.length / itemsPerPage);
+    console.log()
 
     let artisanGrid = document.querySelector('.all-artisans');
     console.log(totalPages)
@@ -32,7 +33,7 @@ fetch(apiUrl)
         const pageData = artisans.slice(start, end);
         console.log(pageData)
         renderArtisans(pageData)
-        updatePagination(page)
+        updatePagination(page, totalPages)
     }
 
     const renderArtisans = (list) => {
@@ -79,31 +80,66 @@ fetch(apiUrl)
 
     function updatePagination(page) {
         const pagination = document.querySelector('.pagination');
-        pagination.innerHTML = `
-            <button class="page-btn prev" ${page === 1 ? 'disabled' : ''}>&lt;</button>
-            <button class="page-btn ${page === 1 ? 'active' : ''}">1</button>
-            <button class="page-btn ${page === 2 ? 'active' : ''}">2</button>
-            <button class="page-btn ${page === 3 ? 'active' : ''}">3</button>
-            <span class="page-ellipsis">...</span>
-            <button class="page-btn ${page === totalPages ? 'active' : ''}">${totalPages}</button>
-            <button class="page-btn next" ${page === totalPages ? 'disabled' : ''}>&gt;</button>
-        `;
+        pagination.innerHTML = ``;
 
-        pagination.querySelector('.prev').onclick = () => {
-            if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
+        const prevBtn = document.createElement("button");
+        prevBtn.className = 'page-btn prev';
+        prevBtn.textContent = '<';
+        prevBtn.disabled = page === 1;
+        prevBtn.onclick = () => {
+            if(currentPage > 1){
+                currentPage--;
+                renderPage(currentPage)
             }
-        };
-        pagination.querySelector('.next').onclick = () => {
+        }
+        pagination.appendChild(prevBtn);
+
+        const addPageButton =  (i) => {
+            const Pages = document.createElement('button')
+            Pages.className = `page-btn ${page === i ? 'active' : ''}`;
+            Pages.textContent = i
+            Pages.onclick = () => {
+                currentPage = i
+                renderPage(currentPage)
+            }
+            pagination.appendChild(Pages)
+        }
+
+        addPageButton(1);
+        if(page > 3){
+            const ellapsis = document.createElement('span');
+            ellapsis.className = 'page-ellipsis';
+            ellapsis.textContent = '...';
+            pagination.appendChild(ellapsis)
+        }
+
+        for(let i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + 1); i++){
+            addPageButton(i)
+        }
+
+        if(page < totalPages - 2){
+            const ellapsis = document.createElement('span');
+            ellapsis.className = 'page-ellipsis';
+            ellapsis.textContent = '...';
+            pagination.appendChild(ellapsis)
+        }
+
+        if(totalPages > 1){
+            addPageButton(totalPages)
+        }
+
+        const nextBtn = document.createElement("button");
+        nextBtn.className = 'page-btn next';
+        nextBtn.textContent = '>'
+        nextBtn.disabled = page === totalPages;
+        nextBtn.onclick = () => {
             if (currentPage < totalPages) {
             currentPage++;
             renderPage(currentPage);
             }
-        };
+        }
+        pagination.appendChild(nextBtn)
     }
-
-
     renderPage(currentPage);
 })
 .catch(error => {

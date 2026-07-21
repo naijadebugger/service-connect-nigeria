@@ -87,7 +87,6 @@
 .artisan-gride {
     flex-grow: 1; 
     gap: var(--space-6);
-    overflow-y: scroll;
 }
 .artisan-location{
   width: 100%;
@@ -150,7 +149,6 @@
   gap: var(--space-4);
   margin: var(--space-6) auto;
   padding: var(--space-6) var(--space-8);
-  overflow-y: scroll;
 }
 
 .artisan-card {
