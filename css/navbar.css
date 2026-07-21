@@ -16,13 +16,14 @@
 
 /* Logo */
 .sc-navbar__logo {
-  display:     flex;
+  /* display:     flex;
   align-items: center;
   gap:         var(--space-2);
   font-size:   var(--font-lg);
   font-weight: 700;
   color:       var(--color-navy);
-  flex-shrink: 0;
+  flex-shrink: 0; */
+  display: none;
 }
 
 .sc-navbar__logo-icon {
@@ -172,4 +173,30 @@
   height:     24px;
   background: var(--color-border);
   flex-shrink: 0;
+}
+
+/* for the profile avatar  */
+.sc-avatar {
+  border-radius:   50%;
+  object-fit:      cover;
+  flex-shrink:     0;
+  display:         block;
+  width:           32px;
+  height:          32px;
+  align-items:     center;
+  justify-content: center;
+  background:      var(--color-navy-mid);
+  color:           var(--color-white);
+  font-weight:     600;
+  font-size:       var(--font-xs);
+}
+
+.sc-navbar__user {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--space-2);
+  cursor:        pointer;
+  padding:       4px 6px 4px 4px;
+  border-radius: var(--radius-md);
+  transition:    background .15s;
 }

@@ -1,0 +1,323 @@
+/* ==========================================================================
+   Confirm Your Booking — page layout
+   Responsive breakpoints:
+     Desktop : default styles (> 900px)
+     Tablet  : max-width 900px
+     Mobile  : max-width 600px
+   ========================================================================== */
+
+.sc-page-header {
+  margin-bottom: var(--space-6);
+}
+
+.sc-back-link {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             6px;
+  font-size:       var(--font-sm);
+  color:           var(--color-text-secondary);
+  text-decoration: none;
+  margin-bottom:   var(--space-3);
+  padding-left: 2rem;
+  padding-top:1.5rem;
+  transition:      color .15s;
+}
+.sc-back-link:hover { color: var(--color-text-primary); }
+
+.sc-page-title {
+  font-size:   var(--font-2xl);
+  font-weight: 800;
+  color:       var(--color-text-primary);
+  padding-left: 2rem;
+  margin:      0;
+  letter-spacing: -0.01em;
+}
+
+.sc-booking-layout {
+  display:               grid;
+  grid-template-columns: 340px 1fr;
+  gap:                   var(--space-6);
+  align-items:           start;
+  padding: 2rem;
+}
+
+/* — Left column: artisan summary card — */
+.sc-booking-artisan {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-5);
+}
+
+.sc-artisan-summary {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow:      hidden;
+}
+
+.sc-artisan-summary__image {
+  position:    relative;
+  width:       100%;
+  aspect-ratio: 4/3;
+  overflow:    hidden;
+  background:  var(--color-border);
+}
+.sc-artisan-summary__image img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.sc-verified-badge {
+  position:        absolute;
+  bottom:          var(--space-3);
+  left:            var(--space-3);
+  display:         inline-flex;
+  align-items:     center;
+  gap:             6px;
+  background:      var(--color-navy);
+  color:           var(--color-white);
+  font-size:       var(--font-xs);
+  font-weight:     600;
+  padding:         4px 10px;
+  border-radius:   999px;
+}
+
+.sc-artisan-summary__body {
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.sc-artisan-summary__name {
+  font-size:   var(--font-lg);
+  font-weight: 700;
+  margin:      0 0 2px;
+}
+.sc-artisan-summary__trade {
+  font-size:  var(--font-sm);
+  color:      var(--color-text-secondary);
+  margin:     0 0 var(--space-3);
+}
+
+.sc-artisan-summary__meta {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  font-size:   var(--font-sm);
+  color:       var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+.sc-artisan-summary__rating {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  color:       var(--color-text-primary);
+  font-weight: 700;
+}
+.sc-artisan-summary__rating-star { color: var(--color-primary); }
+
+.sc-artisan-summary__badges {
+  display: flex;
+  gap:     var(--space-2);
+  flex-wrap: wrap;
+}
+.sc-badge-pill {
+  background:    var(--color-bg);
+  color:         var(--color-text-secondary);
+  font-size:     var(--font-xs);
+  font-weight:   600;
+  padding:       4px 10px;
+  border-radius: 999px;
+}
+
+/* — Pricing summary card — */
+.sc-pricing-card {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding:       var(--space-5);
+}
+.sc-pricing-card__title {
+  font-size:   var(--font-lg);
+  font-weight: 700;
+  margin:      0 0 var(--space-4);
+}
+.sc-pricing-row {
+  display:         flex;
+  justify-content: space-between;
+  font-size:       var(--font-sm);
+  color:           var(--color-text-secondary);
+  padding:         var(--space-2) 0;
+  gap: var(--space-3);
+}
+.sc-pricing-row__value { color: var(--color-text-primary); font-weight: 500; text-align: right; }
+.sc-pricing-row--total {
+  border-top:  1px solid var(--color-border);
+  margin-top:  var(--space-2);
+  padding-top: var(--space-3);
+  font-weight: 700;
+  font-size:   var(--font-base);
+  color:       var(--color-text-primary);
+}
+.sc-pricing-row--total .sc-pricing-row__value {
+  font-size:   var(--font-lg);
+  font-weight: 800;
+}
+.sc-pricing-card__note {
+  font-size:   var(--font-xs);
+  color:       var(--color-text-muted);
+  font-style:  italic;
+  margin-top:  var(--space-3);
+}
+
+/* — Right column: booking form — */
+.sc-booking-form {
+  background:    var(--color-surface);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding:       var(--space-6);
+  display:       flex;
+  flex-direction: column;
+  gap:           var(--space-5);
+}
+
+.sc-form-row {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--space-4);
+}
+
+/* — Photo upload — */
+.sc-photo-upload {
+  display: flex;
+  gap:     var(--space-3);
+  flex-wrap: wrap;
+}
+.sc-photo-thumb {
+  position:      relative;
+  width:         96px;
+  height:        96px;
+  border-radius: var(--radius-md);
+  overflow:      hidden;
+  border:        1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.sc-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.sc-photo-thumb__remove {
+  position:        absolute;
+  top:             4px;
+  right:           4px;
+  width:           20px;
+  height:          20px;
+  border-radius:   50%;
+  border:          none;
+  background:      rgba(15,23,42,.7);
+  color:           var(--color-white);
+  font-size:       11px;
+  line-height:     1;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+}
+
+.sc-photo-add {
+  width:           96px;
+  height:          96px;
+  border-radius:   var(--radius-md);
+  border:          1.5px dashed var(--color-border);
+  background:      transparent;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  gap:             4px;
+  font-size:       var(--font-xs);
+  color:           var(--color-text-secondary);
+  cursor:          pointer;
+  transition:      border-color .15s, color .15s;
+  flex-shrink: 0;
+}
+.sc-photo-add:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.sc-photo-add__icon { font-size: 1.1rem; }
+
+.sc-booking-form__actions {
+  display:         flex;
+  gap:             var(--space-3);
+  padding-top:     var(--space-2);
+}
+.sc-booking-form__actions .sc-btn--primary { flex: 2; }
+.sc-booking-form__actions .sc-btn--outline { flex: 1; }
+
+
+/* ==========================================================================
+   TABLET  (≤ 900px)
+   Layout drops from two columns to one; artisan card + pricing card
+   sit above the form instead of beside it.
+   ========================================================================== */
+@media (max-width: 900px) {
+  .sc-booking-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-booking-form {
+    padding: var(--space-5);
+  }
+
+  .sc-page-title {
+    font-size: 1.65rem;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE  (≤ 600px)
+   Tighter spacing, stacked form fields, smaller photo thumbnails,
+   full-width stacked action buttons.
+   ========================================================================== */
+@media (max-width: 600px) {
+  .sc-page-title {
+    font-size: 1.4rem;
+  }
+
+  .sc-booking-layout {
+    gap: var(--space-4);
+  }
+
+  .sc-artisan-summary__body {
+    padding: var(--space-4);
+  }
+
+  .sc-artisan-summary__meta {
+    gap: var(--space-2);
+    font-size: var(--font-xs);
+  }
+
+  .sc-pricing-card {
+    padding: var(--space-4);
+  }
+
+  .sc-booking-form {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .sc-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-photo-thumb,
+  .sc-photo-add {
+    width:  80px;
+    height: 80px;
+  }
+
+  .sc-booking-form__actions {
+    flex-direction: column;
+  }
+  .sc-booking-form__actions .sc-btn--primary,
+  .sc-booking-form__actions .sc-btn--outline {
+    flex: 1;
+    width: 100%;
+  }
+}
