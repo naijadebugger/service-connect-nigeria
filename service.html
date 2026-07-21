@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Connect Nigeria</title>
+    <link rel="stylesheet" href="./css/service.css">
+    <script src="./js/service.js" defer></script>
+</head>
+<body>
+    <!-- header section -->
+    <article id="header"></article>
+    <main class="services-page">
+        <!-- filter section -->
+        <aside class="filters">
+            <h3>Filters</h3>
+            <p class="filters-subtitle">Refine your search</p>
+
+            <!-- Category dropdown -->
+            <div class="filter-group">
+                <button class="filter-toggle" data-target="categoryDropdown">
+                <i class="fa-solid fa-layer-group">
+                    <span class="uil--layer-group"></span>
+                </i> Category
+                <span class="arrow">&#9662;</span>
+                </button>
+                <div id="categoryDropdown" class="filter-dropdown">
+                <label><input type="checkbox" value="Electrician"> Electrician</label>
+                <label><input type="checkbox" value="Plumber"> Plumber</label>
+                <label><input type="checkbox" value="Painter" checked> Painter</label>
+                </div>
+            </div>
+
+            <!-- Location dropdown -->
+            <div class="filter-group">
+                <button class="filter-toggle" data-target="locationDropdown">
+                <i class="fa-solid fa-location-dot">
+                    <span class="mdi--location"></span>
+                </i> Location
+                <span class="arrow">&#9662;</span>
+                </button>
+                <div id="locationDropdown" class="filter-dropdown">
+                <input type="text" placeholder="Enter city..." />
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="filter-group">
+                <i class="fa-solid fa-star"></i> Rating
+            </div>
+
+            <!-- Experience -->
+            <div class="filter-group">
+                <i class="fa-solid fa-briefcase"></i> Experience
+            </div>
+        </aside>
+
+        <!-- artisans grid section -->
+        <section class="artisan-gride">
+
+            <article class="artisan-location">
+                <article class="artisan-location__header">
+                    <h3>Found 124 Artisans in Lagos</h3>
+                    <article class="artisan-location__links">
+                        <a href="/index.html">Home</a> /
+                        <a href="./service.html">Services</a>
+                    </article>
+                </article>
+                <article class="search-location">
+                    <label class="sc-search">
+                        <i class="sc-search__icon">
+                            <span class="material-symbols--search-rounded"></span>
+                        </i>
+                        <input type="text" class="sc-search__input" placeholder=" Search for skills (e.g, Electrician)..." />
+                    </label>
+
+                </article>
+
+            </article>
+
+            <section class="all-artisans">
+                
+            </section>
+            <article class="pagination">
+                <button class="page-btn prev">&lt;</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-ellipsis">...</span>
+                <button class="page-btn">12</button>
+                <button class="page-btn next">&gt;</button>
+            </article>
+
+        </section>
+
+        
+
+        
+    </main>
+    <!-- footer section -->
+    <article id="footer"></article>
+</body>
+</html>
