@@ -13,64 +13,73 @@
 </head>
 <body>
   <div class="sc-layout">
+    
     <aside class="sc-sidebar">
       <div class="sc-sidebar__brand">
-        <div class="sc-sidebar__brand-icon">⚙</div>
+        <div class="sc-sidebar__brand-icon">🔧</div>
         <div class="sc-sidebar__brand-text">
           <span class="sc-sidebar__brand-name">ServiceConnect</span>
-          <span class="sc-sidebar__brand-sub">Artisan Portal</span>
+          <span class="sc-sidebar__brand-sub">ARTISAN PORTAL</span>
         </div>
       </div>
+
       <nav class="sc-sidebar__nav">
-        <a href="index.html" class="sc-sidebar__nav-item">
+        <a href="dashboard.html" class="sc-sidebar__nav-item">
           <span class="sc-sidebar__nav-icon">▦</span>
           <span class="sc-sidebar__nav-label">Dashboard</span>
         </a>
-        <a href="listings.html" class="sc-sidebar__nav-item">
-          <span class="sc-sidebar__nav-icon">📋</span>
-          <span class="sc-sidebar__nav-label">Service Listings</span>
-        </a>
-        <a href="incoming.html" class="sc-sidebar__nav-item">
-          <span class="sc-sidebar__nav-icon">📥</span>
-          <span class="sc-sidebar__nav-label">Incoming Requests</span>
-        </a>
-        <a href="history.html" class="sc-sidebar__nav-item">
-          <span class="sc-sidebar__nav-icon">🕐</span>
-          <span class="sc-sidebar__nav-label">Job History</span>
-        </a>
-        <a href="ratings.html" class="sc-sidebar__nav-item">
-          <span class="sc-sidebar__nav-icon">★</span>
-          <span class="sc-sidebar__nav-label">Ratings</span>
+        <a href="jobs.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">💼</span>
+          <span class="sc-sidebar__nav-label">My Jobs</span>
         </a>
         <a href="earnings.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
           <span class="sc-sidebar__nav-icon">💰</span>
-          <span class="sc-sidebar__nav-label">Earnings</span>
+          <span class="sc-sidebar__nav-label">Earnings Overview</span>
         </a>
-        <a href="settings.html" class="sc-sidebar__nav-item">
-          <span class="sc-sidebar__nav-icon">⚙</span>
-          <span class="sc-sidebar__nav-label">Settings</span>
+        <a href="ratings.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">★</span>
+          <span class="sc-sidebar__nav-label">Ratings &amp; Reviews</span>
+        </a>
+        <a href="profile.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">👤</span>
+          <span class="sc-sidebar__nav-label">Profile Settings</span>
         </a>
       </nav>
+
       <div class="sc-sidebar__bottom">
-        <button class="sc-sidebar__cta">+ Post a Job</button>
+        <button class="sc-sidebar__logout">
+          <span>↩</span>
+          <span>Logout</span>
+        </button>
       </div>
     </aside>
 
     <div class="sc-main">
+    
       <header class="sc-navbar">
+        <p class="admin-navbar-title">Artisan Workspace</p>
         <div class="sc-navbar__search">
           <span class="sc-navbar__search-icon">🔍</span>
-          <input class="sc-navbar__search-input" type="search" placeholder="Search..." />
+          <input
+            class="sc-navbar__search-input"
+            type="search"
+            placeholder="Search jobs, transactions..."
+            aria-label="Search portal"
+          />
         </div>
         <div class="sc-navbar__actions">
-          <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+          <button class="sc-navbar__icon-btn" aria-label="Notifications">
+            🔔
+            <span class="sc-navbar__badge"></span>
+          </button>
           <div class="sc-navbar__divider"></div>
           <div class="sc-navbar__user">
-            <div class="sc-navbar__user-info">
-              <span class="sc-navbar__user-name">Adebayo O.</span>
-              <span class="sc-navbar__user-role">Master Electrician</span>
-            </div>
-            <img class="admin-avatar" src="https://ui-avatars.com/api/?name=Adebayo+O&background=0B2240&color=fff&size=36" alt="User avatar" width="36" height="36" />
+            <img
+              class="admin-avatar"
+              src="https://ui-avatars.com/api/?name=Artisan+Partner&background=F59E0B&color=fff&size=36"
+              alt="Artisan avatar"
+              width="36" height="36"
+            />
           </div>
         </div>
       </header>
