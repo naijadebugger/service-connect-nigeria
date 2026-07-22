@@ -1,12 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ServiceConnect Nigeria</title>
-  <link rel="stylesheet" href="../../../css/main.css">
-  <link rel="stylesheet" href="../../../css/components.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earnings Overview — ServiceConnect</title>
+
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/sidebar.css" />
+  <link rel="stylesheet" href="../../css/navbar.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/earnings.css" />
 </head>
 <body>
-  </body>
+  <div class="sc-layout">
+    
+    <aside class="sc-sidebar">
+      <div class="sc-sidebar__brand">
+        <div class="sc-sidebar__brand-icon">🔧</div>
+        <div class="sc-sidebar__brand-text">
+          <span class="sc-sidebar__brand-name">ServiceConnect</span>
+          <span class="sc-sidebar__brand-sub">ARTISAN PORTAL</span>
+        </div>
+      </div>
+
+      <nav class="sc-sidebar__nav">
+        <a href="dashboard.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">▦</span>
+          <span class="sc-sidebar__nav-label">Dashboard</span>
+        </a>
+        <a href="jobs.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">💼</span>
+          <span class="sc-sidebar__nav-label">My Jobs</span>
+        </a>
+        <a href="earnings.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+          <span class="sc-sidebar__nav-icon">💰</span>
+          <span class="sc-sidebar__nav-label">Earnings Overview</span>
+        </a>
+        <a href="ratings.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">★</span>
+          <span class="sc-sidebar__nav-label">Ratings &amp; Reviews</span>
+        </a>
+        <a href="profile.html" class="sc-sidebar__nav-item">
+          <span class="sc-sidebar__nav-icon">👤</span>
+          <span class="sc-sidebar__nav-label">Profile Settings</span>
+        </a>
+      </nav>
+
+      <div class="sc-sidebar__bottom">
+        <button class="sc-sidebar__logout">
+          <span>↩</span>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="sc-main">
+    
+      <header class="sc-navbar">
+        <p class="admin-navbar-title">Artisan Workspace</p>
+        <div class="sc-navbar__search">
+          <span class="sc-navbar__search-icon">🔍</span>
+          <input
+            class="sc-navbar__search-input"
+            type="search"
+            placeholder="Search jobs, transactions..."
+            aria-label="Search portal"
+          />
+        </div>
+        <div class="sc-navbar__actions">
+          <button class="sc-navbar__icon-btn" aria-label="Notifications">
+            🔔
+            <span class="sc-navbar__badge"></span>
+          </button>
+          <div class="sc-navbar__divider"></div>
+          <div class="sc-navbar__user">
+            <img
+              class="admin-avatar"
+              src="https://ui-avatars.com/api/?name=Artisan+Partner&background=F59E0B&color=fff&size=36"
+              alt="Artisan avatar"
+              width="36" height="36"
+            />
+          </div>
+        </div>
+      </header>
+
+      <main class="sc-page-content">
+        <header class="earnings-header">
+          <h1 class="earnings-header-title">Earnings Overview</h1>
+          <p class="earnings-header-subtitle">Track your revenue, payouts, and financial performance.</p>
+        </header>
+
+        <section class="earnings-widgets" aria-label="Earnings summary">
+          <div class="earnings-balance-card">
+            <p class="earnings-balance-label">Total Available Balance</p>
+            <p class="earnings-balance-amount" id="balance-amount"></p>
+            <div class="earnings-balance-actions">
+              <button class="earnings-btn earnings-btn--primary">Withdraw</button>
+              <button class="earnings-btn earnings-btn--outline">View History</button>
+            </div>
+          </div>
+
+          <div class="earnings-stat-card">
+            <p class="earnings-stat-label">
+              <span class="earnings-stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <path d="M14 2v6h6"/>
+                  <line x1="8" y1="13" x2="16" y2="13"/>
+                  <line x1="8" y1="17" x2="16" y2="17"/>
+                </svg>
+              </span>
+              Earnings this Month
+            </p>
+            <p class="earnings-stat-amount" id="month-amount"></p>
+            <p class="earnings-stat-trend" id="month-trend"></p>
+          </div>
+
+          <div class="earnings-stat-card">
+            <p class="earnings-stat-label">
+              <span class="earnings-stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+              </span>
+              Pending Payouts
+            </p>
+            <p class="earnings-stat-amount" id="pending-amount"></p>
+            <p class="earnings-stat-note" id="pending-note"></p>
+          </div>
+        </section>
+
+        <section class="earnings-chart-card" aria-label="Earnings trend">
+          <div class="earnings-chart-head">
+            <h2 class="earnings-section-title">Earnings Trend</h2>
+            <button class="earnings-chart-toggle">Last 6 Months</button>
+          </div>
+          <div class="earnings-chart">
+            <canvas id="earnings-chart" height="260"></canvas>
+          </div>
+        </section>
+
+        <section class="earnings-transactions-card" aria-label="Recent transactions">
+          <div class="earnings-transactions-head">
+            <h2 class="earnings-section-title">Recent Transactions</h2>
+            <a href="#" class="earnings-view-all">View All</a>
+          </div>
+          <table class="earnings-table">
+            <thead>
+              <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Method</th>
+                <th>Amount (₦)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-body"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/artisan/earnings.js"></script>
+</body>
 </html>
