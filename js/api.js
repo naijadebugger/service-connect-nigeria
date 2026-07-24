@@ -776,7 +776,10 @@ export const platformSettings = {
 };
 
 // ============================================================
-// PUBLIC MARKETPLACE DATA & FETCH HELPERS
+// PUBLIC MARKETPLACE DATA (PLACEHOLDER / MOCK DATA)
+// NOTE FOR FRONTEND TEAM: 
+// Replace or update the objects in this array with the exact data fields 
+// needed for your page features until the backend API endpoints land.
 // ============================================================
 
 export const publicArtisans = [
