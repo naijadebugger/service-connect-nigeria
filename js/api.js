@@ -774,3 +774,78 @@ export const platformSettings = {
   commissionRate: 15,
   lastUpdated: "Today at 09:42 AM",
 };
+
+// ============================================================
+// PUBLIC MARKETPLACE DATA & FETCH HELPERS
+// ============================================================
+
+export const publicArtisans = [
+  {
+    id: 1,
+    name: "Adekunle Johnson",
+    trade: "Electrical Engineering & Wiring",
+    rating: 4.9,
+    reviewsCount: 128,
+    location: "Lekki Phase 1, Lagos",
+    experienceYears: "8+ yrs exp",
+    startingPrice: "₦15,000",
+    avatar: "https://picsum.photos/200?random=101",
+    verified: true,
+    badges: ["Fast Responder", "Top Rated"]
+  },
+  {
+    id: 2,
+    name: "Chinedu Okafor",
+    trade: "Master Plumber",
+    rating: 4.8,
+    reviewsCount: 94,
+    location: "Ikeja, Lagos",
+    experienceYears: "5+ yrs exp",
+    startingPrice: "₦12,000",
+    avatar: "https://picsum.photos/200?random=102",
+    verified: true,
+    badges: ["Verified Pro"]
+  },
+  {
+    id: 3,
+    name: "Amina Bello",
+    trade: "Interior & Exterior Painting",
+    rating: 4.7,
+    reviewsCount: 62,
+    location: "Victoria Island, Lagos",
+    experienceYears: "6+ yrs exp",
+    startingPrice: "₦20,000",
+    avatar: "https://picsum.photos/200?random=103",
+    verified: true,
+    badges: ["Top Rated"]
+  },
+  {
+    id: 4,
+    name: "Samuel Obi",
+    trade: "Carpentry & Cabinetry",
+    rating: 4.9,
+    reviewsCount: 110,
+    location: "Surulere, Lagos",
+    experienceYears: "10+ yrs exp",
+    startingPrice: "₦25,000",
+    avatar: "https://picsum.photos/200?random=104",
+    verified: true,
+    badges: ["Verified Pro", "Master Craftsman"]
+  }
+];
+
+export async function fetchPublicArtisans() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(publicArtisans);
+    }, 300);
+  });
+}
+
+export async function fetchAdminStats() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(dashboardStats);
+    }, 300);
+  });
+}

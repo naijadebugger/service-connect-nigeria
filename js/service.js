@@ -2,9 +2,9 @@ import { fetchPublicArtisans } from './api.js';
 
 // ============================================================
 // COMPONENT LOADING
-// Absolute paths (/components/...) ensure this works on nested routes
+// Absolute paths (./components/...) ensure this works on nested routes
 // ============================================================
-fetch("/components/header.html")
+fetch("./components/header.html")
   .then(response => response.text())
   .then(data => {
     const headerEl = document.getElementById("header");
@@ -12,7 +12,7 @@ fetch("/components/header.html")
   })
   .catch(err => console.error("Error loading header component:", err));
 
-fetch("/components/footer.html")
+fetch("./components/footer.html")
   .then(response => response.text())
   .then(data => {
     const footerEl = document.getElementById("footer");
