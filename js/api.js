@@ -794,7 +794,7 @@ export const publicArtisans = [
     startingPrice: "₦15,000",
     avatar: "https://picsum.photos/200?random=101",
     verified: true,
-    badges: ["Fast Responder", "Top Rated"],
+    badges: ["Fast Responder", "Top Rated"]
   },
   {
     id: 2,
@@ -807,7 +807,7 @@ export const publicArtisans = [
     startingPrice: "₦12,000",
     avatar: "https://picsum.photos/200?random=102",
     verified: true,
-    badges: ["Verified Pro"],
+    badges: ["Verified Pro"]
   },
   {
     id: 3,
@@ -820,7 +820,7 @@ export const publicArtisans = [
     startingPrice: "₦20,000",
     avatar: "https://picsum.photos/200?random=103",
     verified: true,
-    badges: ["Top Rated"],
+    badges: ["Top Rated"]
   },
   {
     id: 4,
@@ -833,22 +833,10 @@ export const publicArtisans = [
     startingPrice: "₦25,000",
     avatar: "https://picsum.photos/200?random=104",
     verified: true,
-    badges: ["Verified Pro", "Master Craftsman"],
-  },
+    badges: ["Verified Pro", "Master Craftsman"]
+  }
 ];
 
-// ============================================================
-// ASYNC API SIMULATION HELPERS
-// NOTE FOR FRONTEND TEAM:
-// These functions simulate backend network delay (300ms). When backend 
-// endpoints are live, we will swap the internal setTimeout with 
-// real fetch calls: e.g. return await fetch('/api/Artisans').then(r => r.json());
-// ============================================================
-
-/**
- * Fetch public artisans list
- * @returns {Promise<Array>} Array of artisan objects
- */
 export async function fetchPublicArtisans() {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -857,10 +845,6 @@ export async function fetchPublicArtisans() {
   });
 }
 
-/**
- * Fetch admin metrics stats
- * @returns {Promise<Object>} Object containing dashboard metrics
- */
 export async function fetchAdminStats() {
   return new Promise((resolve) => {
     setTimeout(() => {
