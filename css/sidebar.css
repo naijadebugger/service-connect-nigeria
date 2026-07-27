@@ -1,0 +1,176 @@
+   /* Sidebar Component Styles */
+
+.sc-sidebar {
+  width:      var(--sidebar-width);
+  height:     100vh;
+  position:   fixed;
+  top:        0;
+  left:       0;
+  background: var(--color-navy);
+  display:    flex;
+  flex-direction: column;
+  z-index:    200;
+  overflow:   hidden;
+}
+
+/* Brand / logo area */
+.sc-sidebar__brand {
+  padding:     var(--space-6) var(--space-5);
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  flex-shrink: 0;
+}
+
+.sc-sidebar__brand-icon {
+  width:         38px;
+  height:        38px;
+  background:    var(--color-primary);
+  border-radius: var(--radius-md);
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  font-size:     1.1rem;
+  flex-shrink:   0;
+}
+
+.sc-sidebar__brand-text {}
+
+.sc-sidebar__brand-name {
+  font-size:   var(--font-base);
+  font-weight: 700;
+  color:       var(--color-white);
+  line-height: 1.2;
+}
+
+.sc-sidebar__brand-sub {
+  font-size:  var(--font-xs);
+  color:      rgba(255,255,255,.5);
+  line-height: 1.2;
+}
+
+/* Nav list */
+.sc-sidebar__nav {
+  flex:    1;
+  padding: var(--space-4) 0;
+  overflow-y: auto;
+}
+
+.sc-sidebar__nav::-webkit-scrollbar { width: 4px; }
+.sc-sidebar__nav::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+}
+
+.sc-sidebar__nav-item {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  padding:     0.65rem var(--space-5);
+  font-size:   var(--font-sm);
+  font-weight: 500;
+  color:       rgba(255,255,255,.65);
+  border-radius: 0;
+  transition:  background .18s, color .18s;
+  cursor:      pointer;
+  position:    relative;
+  text-decoration: none;
+  border:      none;
+  background:  none;
+  width:       100%;
+  text-align:  left;
+}
+
+.sc-sidebar__nav-item:hover {
+  background: rgba(255,255,255,.07);
+  color:      var(--color-white);
+}
+
+.sc-sidebar__nav-item--active {
+  background: rgba(255,255,255,.10);
+  color:      var(--color-white);
+}
+
+/* Left accent bar for active item */
+.sc-sidebar__nav-item--active::before {
+  content:       '';
+  position:      absolute;
+  left:          0;
+  top:           6px;
+  bottom:        6px;
+  width:         3px;
+  background:    var(--color-primary);
+  border-radius: 0 3px 3px 0;
+}
+
+.sc-sidebar__nav-icon {
+  font-size:   1rem;
+  width:       20px;
+  flex-shrink: 0;
+  opacity:     0.8;
+}
+.sc-sidebar__nav-item--active .sc-sidebar__nav-icon,
+.sc-sidebar__nav-item:hover .sc-sidebar__nav-icon {
+  opacity: 1;
+}
+
+.sc-sidebar__nav-label { line-height: 1; }
+
+/* Divider inside nav */
+.sc-sidebar__divider {
+  height:     1px;
+  background: rgba(255,255,255,.08);
+  margin:     var(--space-3) var(--space-5);
+}
+
+/* Bottom section */
+.sc-sidebar__bottom {
+  padding:     var(--space-4) var(--space-5) var(--space-5);
+  flex-shrink: 0;
+  border-top:  1px solid rgba(255,255,255,.08);
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--space-3);
+}
+
+/* Post a Job button lives here */
+.sc-sidebar__cta {
+  width:         100%;
+  background:    var(--color-primary);
+  color:         var(--color-white);
+  border:        none;
+  border-radius: var(--radius-md);
+  padding:       0.75rem var(--space-4);
+  font-size:     var(--font-sm);
+  font-weight:   600;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  gap:           var(--space-2);
+  cursor:        pointer;
+  transition:    background .18s, transform .12s;
+}
+.sc-sidebar__cta:hover { background: var(--color-primary-dark); }
+.sc-sidebar__cta:active { transform: scale(.97); }
+
+/* Logout item */
+.sc-sidebar__logout {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-3);
+  padding:     0.5rem var(--space-2);
+  font-size:   var(--font-sm);
+  color:       rgba(255,255,255,.5);
+  cursor:      pointer;
+  border-radius: var(--radius-md);
+  transition:  color .18s, background .18s;
+  border:      none;
+  background:  none;
+  width:       100%;
+  text-align:  left;
+}
+.sc-sidebar__logout:hover {
+  color:      var(--color-white);
+  background: rgba(255,255,255,.07);
+}
