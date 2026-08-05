@@ -6,7 +6,7 @@
  *   'portal'  — logo + search bar + notification icon + user avatar
  *
  * Usage:
- *   const nav = SCNavbar({ variant, activeLink, user, onSearch, onNotification })
+ *   const nav = SCNavbar({ variant, activeLink, user, onSearch, onNotification, onMenuToggle })
  *   document.querySelector('.sc-main').prepend(nav)
  *
  * Config:
@@ -15,6 +15,7 @@
  *   user         : { name, role, avatarUrl } — portal only
  *   onSearch     : callback(query) — portal only
  *   onNotification : callback()
+ *   onMenuToggle : callback() — fires when the mobile hamburger icon is clicked (portal only)
  *   links        : array of { label, href } to override public nav links
  */
 
@@ -26,6 +27,7 @@ function SCNavbar({
   onNotification  = null,
   links           = null,
   hasNotification = false,
+  onMenuToggle    = null,
 } = {}) {
   const nav = document.createElement('nav');
   nav.className = 'sc-navbar';
@@ -39,7 +41,7 @@ function SCNavbar({
   if (variant === 'public') {
     _buildPublicNav(nav, activeLink, links);
   } else {
-    _buildPortalNav(nav, user, onSearch, onNotification, hasNotification);
+    _buildPortalNav(nav, user, onSearch, onNotification, hasNotification, onMenuToggle);
   }
 
   return nav;
@@ -107,7 +109,17 @@ function _buildPublicNav(nav, activeLink, customLinks) {
   nav.appendChild(actions);
 }
 
-function _buildPortalNav(nav, user, onSearch, onNotification, hasNotification) {
+function _buildPortalNav(nav, user, onSearch, onNotification, hasNotification, onMenuToggle) {
+  // Hamburger — mobile only, toggles the sidebar (see sidebar.css / app.js)
+  if (onMenuToggle) {
+    const menuBtn = document.createElement('button');
+    menuBtn.className = 'sc-navbar__menu-btn';
+    menuBtn.setAttribute('aria-label', 'Toggle sidebar menu');
+    menuBtn.innerHTML = '☰';
+    menuBtn.addEventListener('click', onMenuToggle);
+    nav.appendChild(menuBtn);
+  }
+
   // Search bar
   const searchWrap = document.createElement('div');
   searchWrap.className = 'sc-navbar__search';

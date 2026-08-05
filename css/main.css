@@ -1,5 +1,4 @@
-
-   /* ServiceConnect Nigeria — Design Tokens & Global Styles */
+/* ServiceConnect Nigeria — Design Tokens & Global Styles */
   
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -92,9 +91,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 input, textarea, select { font-family: inherit; }
 
 /* ─── Layout helpers ─────────────────────────────────── */
-.sc-layout {
+.sc-app {
   display: flex;
   min-height: 100vh;
+  position: relative;
 }
 
 .sc-main {
@@ -107,6 +107,13 @@ input, textarea, select { font-family: inherit; }
 .sc-page-content {
   flex: 1;
   padding: var(--space-8);
+}
+
+/* — Mobile: sidebar is off-canvas now, so content no longer needs to be pushed over — */
+@media (max-width: 900px) {
+  .sc-main {
+    margin-left: 0;
+  }
 }
 
 /* ─── Utility ────────────────────────────────────────── */

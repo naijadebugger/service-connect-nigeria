@@ -20,11 +20,32 @@ function mountShell() {
 
   const sidebar = SCSidebar({
     activeItem: 'Search Services',
-    onNavigate: (label) => console.log('Navigate to', label),
+    onNavigate: (label) => {
+      console.log('Navigate to', label);
+      closeSidebar(); // close the mobile panel after picking a nav item
+    },
     onPostJob: () => console.log('Post a Job clicked'),
     onLogout: () => console.log('Logout clicked'),
   });
   app.appendChild(sidebar);
+
+  // Dark backdrop shown behind the sidebar on mobile while it's open
+  const overlay = document.createElement('div');
+  overlay.className = 'sc-sidebar-overlay';
+  app.appendChild(overlay);
+
+  function openSidebar() {
+    sidebar.classList.add('sc-sidebar--open');
+    overlay.classList.add('sc-sidebar-overlay--visible');
+  }
+  function closeSidebar() {
+    sidebar.classList.remove('sc-sidebar--open');
+    overlay.classList.remove('sc-sidebar-overlay--visible');
+  }
+  function toggleSidebar() {
+    sidebar.classList.contains('sc-sidebar--open') ? closeSidebar() : openSidebar();
+  }
+  overlay.addEventListener('click', closeSidebar);
 
   const main = document.createElement('div');
   main.className = 'sc-main';
@@ -35,6 +56,7 @@ function mountShell() {
     hasNotification: true,
     onSearch: (q) => console.log('Search:', q),
     onNotification: () => console.log('Notifications clicked'),
+    onMenuToggle: toggleSidebar,
   });
   main.appendChild(navbar);
 
