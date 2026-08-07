@@ -1,0 +1,180 @@
+.earnings-header {
+  margin-bottom: var(--space-6);
+}
+.earnings-header-title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.earnings-header-subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+.earnings-widgets {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  align-items: start;
+}
+
+.earnings-balance-card {
+  background: var(--color-navy);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+}
+.earnings-balance-label {
+  font-size: var(--font-sm);
+  opacity: 0.75;
+}
+.earnings-balance-amount {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  margin: var(--space-2) 0 var(--space-4);
+}
+.earnings-balance-decimal {
+  font-size: var(--font-lg);
+  opacity: 0.7;
+}
+.earnings-balance-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.earnings-btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+.earnings-btn--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+.earnings-btn--outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-white);
+}
+
+.earnings-stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.earnings-stat-label {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.earnings-stat-icon {
+  display: inline-flex;
+  color: var(--color-primary);
+}
+.earnings-stat-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.earnings-stat-amount {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: var(--space-2) 0;
+}
+.earnings-stat-trend {
+  font-size: var(--font-xs);
+  color: var(--color-success);
+}
+.earnings-stat-note {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.earnings-chart-card,
+.earnings-transactions-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.earnings-chart-head,
+.earnings-transactions-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.earnings-section-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.earnings-chart-toggle {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+}
+
+.earnings-chart {
+  width: 100%;
+}
+.earnings-chart canvas {
+  display: block;
+  width: 100%;
+}
+
+.earnings-view-all {
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.earnings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.earnings-table th {
+  text-align: left;
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.earnings-table td {
+  font-size: var(--font-sm);
+  color: var(--color-text-primary);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.earnings-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.earnings-badge {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+.earnings-badge--success {
+  background: var(--color-status-success-bg);
+  color: var(--color-status-success-text);
+}
+.earnings-badge--processing {
+  background: var(--color-status-scheduled-bg);
+  color: var(--color-status-scheduled-text);
+}
