@@ -1,11 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Artisan Verification | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- Artisan NIN Review Deck -->
+
+<div class="sc-layout">
+
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout"><span>↩</span><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <div class="sc-main">
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">Admin Central</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input class="sc-navbar__search-input" type="search" placeholder="Search applications..." />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin" width="36" height="36" />
+        </div>
+      </div>
+    </header>
+
+    <main class="sc-page-content">
+
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Artisan Verification</h1>
+          <p class="admin-page-sub">Review and approve artisan NIN and credential submissions.</p>
+        </div>
+      </div>
+
+      <div class="verification-layout">
+
+        <!-- Queue Panel -->
+        <div class="verification-queue">
+          <div class="verification-queue__header">
+            <h2 class="verification-queue__title">Verification Queue</h2>
+            <span class="admin-badge admin-badge--warning" id="queueCount"></span>
+          </div>
+          <ul class="verification-queue__list" id="queueList"></ul>
+        </div>
+
+        <!-- Detail Panel -->
+        <div class="verification-detail" id="detailPanel">
+          <div class="verification-detail__empty" id="detailEmpty">
+            <p>Select an applicant from the queue to review their details.</p>
+          </div>
+          <div class="verification-detail__content" id="detailContent" hidden>
+
+            <div class="verification-detail__top">
+              <img class="verification-detail__photo" id="detailPhoto" src="" alt="" />
+              <div class="verification-detail__info">
+                <h2 class="verification-detail__name" id="detailName"></h2>
+                <p class="verification-detail__meta" id="detailMeta"></p>
+                <span class="admin-badge admin-badge--warning">APPLICATION PENDING REVIEW</span>
+              </div>
+              <button class="sc-btn sc-btn--ghost sc-btn--icon" aria-label="Download">⬇</button>
+            </div>
+
+            <div class="verification-detail__section">
+              <h3 class="verification-detail__section-title">APPLICANT BIO</h3>
+              <p class="verification-detail__bio" id="detailBio"></p>
+            </div>
+
+            <div class="verification-detail__cols">
+              <div class="verification-detail__col">
+                <h3 class="verification-detail__section-title">IDENTITY VERIFICATION</h3>
+                <div class="verification-doc-card">
+                  <p class="verification-doc-card__label">National Identity Number (NIN) Slip</p>
+                  <img class="verification-doc-card__img" id="detailNin" src="" alt="NIN Slip" />
+                </div>
+                <div class="verification-guarantor" id="detailGuarantor"></div>
+              </div>
+              <div class="verification-detail__col">
+                <h3 class="verification-detail__section-title">PROFESSIONAL CREDENTIALS</h3>
+                <div class="verification-doc-card">
+                  <p class="verification-doc-card__label">Trade Test Certificate</p>
+                  <img class="verification-doc-card__img" id="detailCert" src="" alt="Certificate" />
+                </div>
+                <div class="verification-bg-check" id="detailBgCheck"></div>
+              </div>
+            </div>
+
+            <div class="verification-detail__actions">
+              <button class="sc-btn sc-btn--outline verification-btn-reject" id="btnReject">
+                ✕ Reject Request
+              </button>
+              <button class="sc-btn sc-btn--ghost" id="btnMoreInfo">
+                Request More Info
+              </button>
+              <button class="sc-btn verification-btn-approve" id="btnApprove">
+                ✓ Approve Artisan
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+    <script src="../../js/admin/verification.js"></script>
 </body>
 </html>

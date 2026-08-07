@@ -1,101 +1,83 @@
 import { users } from '../api.js';
 
-  const tbody = document.getElementById('usersTableBody');
-  const tableCount = document.getElementById('tableCount');
-  const userSearch = document.getElementById('userSearch');
-  const roleFilter = document.getElementById('roleFilter');
-  const statusFilter = document.getElementById('statusFilter');
+const tbody = document.getElementById('usersTableBody');
+const tableCount = document.getElementById('tableCount');
+const userSearch = document.getElementById('userSearch');
+const roleFilter = document.getElementById('roleFilter');
+const statusFilter = document.getElementById('statusFilter');
 
-  const roleIcon = { Customer: '👤', Artisan: '🔧' };
+const statusClass = {
+  Active: 'sc-badge--success',
+  Suspended: 'sc-badge--error',
+  Pending: 'sc-badge--warning',
+};
 
-  const statusClass = {
-    Active:    'admin-badge--success',
-    Suspended: 'admin-badge--error',
-    Pending:   'admin-badge--pending',
-  };
+const actionMarkup = {
+  Active: `<button class="sc-btn sc-btn--outline" style="padding:4px 8px; font-size:12px;">👁️ View</button>
+           <button class="sc-btn sc-btn--danger" style="padding:4px 8px; font-size:12px; margin-left:4px;">🚫 Suspend</button>`,
+  Suspended: `<button class="sc-btn sc-btn--outline" style="padding:4px 8px; font-size:12px;">👁️ View</button>
+              <button class="sc-btn sc-btn--success" style="padding:4px 8px; font-size:12px; margin-left:4px;">↩ Restore</button>`,
+  Pending: `<button class="sc-btn sc-btn--navy" style="padding:4px 8px; font-size:12px;">📋 Review</button>`
+};
 
-  const actionIcon = {
-    Active:    `<button class="admin-table-action" title="View">👁</button>
-                <button class="admin-table-action admin-table-action--warn" title="Suspend">🚫</button>
-                <button class="admin-table-action admin-table-action--danger" title="Delete">🗑</button>`,
-    Suspended: `<button class="admin-table-action" title="View">👁</button>
-                <button class="admin-table-action" title="Restore">↩</button>
-                <button class="admin-table-action admin-table-action--danger" title="Delete">🗑</button>`,
-    Pending:   `<button class="admin-table-action" title="Review">📋</button>
-                <button class="admin-table-action admin-table-action--danger" title="Delete">🗑</button>`,
-  };
+function renderTable(data) {
+  tbody.innerHTML = '';
+  tableCount.textContent = `Showing 1 to ${data.length} of ${data.length} records`;
 
-  function renderTable(data) {
-    tbody.innerHTML = '';
-    tableCount.textContent = `Showing 1 to ${data.length} of ${data.length} results`;
-
-    if (data.length === 0) {
-      tbody.insertAdjacentHTML('beforeend', `
-        <tr>
-          <td colspan="5" class="admin-table-empty">No users match your filters.</td>
-        </tr>
-      `);
-      return;
-    }
-
-    data.forEach(user => {
-      tbody.insertAdjacentHTML('beforeend', `
-        <tr>
-          <td>
-            <div class="admin-table-user">
-              <img
-                src="${user.avatar}"
-                alt="${user.name}"
-                class="admin-table-avatar"
-                width="36" height="36"
-              />
-              <div>
-                <p class="admin-table-user__name">${user.name}</p>
-                <p class="admin-table-user__email">${user.email}</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <span class="admin-table-role">
-              ${roleIcon[user.role] ?? '👤'} ${user.role}
-            </span>
-          </td>
-          <td class="admin-table-date">${user.joined}</td>
-          <td>
-            <span class="admin-badge ${statusClass[user.status] ?? ''}">
-              ${user.status}
-            </span>
-          </td>
-          <td>
-            <div class="admin-table-actions">
-              ${actionIcon[user.status] ?? ''}
-            </div>
-          </td>
-        </tr>
-      `);
-    });
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5" style="padding:24px; text-align:center; color:#94A3B8;">No records found matching filters.</td></tr>`;
+    return;
   }
 
-  function getFiltered() {
-    const q      = userSearch.value.toLowerCase();
-    const role   = roleFilter.value;
-    const status = statusFilter.value;
-    return users.filter(u =>
-      (!q      || u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q)) &&
-      (!role   || u.role === role) &&
-      (!status || u.status === status)
-    );
-  }
+  data.forEach(user => {
+    // Graceful Initials Fallback if Avatar URL is Missing
+    const avatarImg = user.avatar 
+      ? `<img src="${user.avatar}" alt="${user.name}" style="width:36px; height:36px; border-radius:50%; object-fit:cover;" />`
+      : `<div style="width:36px; height:36px; border-radius:50%; background:#0B2240; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:14px;">${user.name.split(' ').map(n => n[0]).join('')}</div>`;
 
-  // Initial render
-  renderTable(users);
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr style="border-bottom:1px solid #E2E8F0;">
+        <td style="padding:14px; display:flex; align-items:center; gap:12px;">
+          ${avatarImg}
+          <div>
+            <p style="font-weight:600; margin:0;">${user.name}</p>
+            <p style="font-size:12px; color:#64748B; margin:0;">${user.email}</p>
+          </div>
+        </td>
+        <td style="padding:14px; color:#334155;">${user.role === 'Artisan' ? '🔧' : '👤'} ${user.role}</td>
+        <td style="padding:14px; color:#64748B;">${user.joined}</td>
+        <td style="padding:14px;">
+          <span class="sc-badge ${statusClass[user.status] || 'sc-badge--neutral'}">${user.status}</span>
+        </td>
+        <td style="padding:14px; text-align:right;">
+          ${actionMarkup[user.status] || ''}
+        </td>
+      </tr>
+    `);
+  });
+}
 
-  // Live filtering
-  [userSearch, roleFilter, statusFilter].forEach(el => {
-    el.addEventListener('input', () => renderTable(getFiltered()));
+function filterRecords() {
+  const query = userSearch.value.toLowerCase();
+  const role = roleFilter.value;
+  const status = statusFilter.value;
+
+  const filtered = users.filter(u => {
+    const matchesSearch = u.name.toLowerCase().includes(query) || u.email.toLowerCase().includes(query);
+    const matchesRole = !role || u.role === role;
+    const matchesStatus = !status || u.status === status;
+    return matchesSearch && matchesRole && matchesStatus;
   });
 
-  // Invite button placeholder
-  document.getElementById('inviteBtn').addEventListener('click', () => {
-    alert('Invite User modal coming soon.');
-  });
+  renderTable(filtered);
+}
+
+// Attach Event Observers
+[userSearch, roleFilter, statusFilter].forEach(element => {
+  element.addEventListener('input', filterRecords);
+});
+
+// Initial Setup Render
+renderTable(users);
+
+document.getElementById('inviteBtn').addEventListener('click', () => alert('Invite System User modal coming soon.'));

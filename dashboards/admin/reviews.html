@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Review Moderation | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- Review Moderation Panel -->
-    
+
+<div class="sc-layout">
+
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout"><span>↩</span><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <div class="sc-main">
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">Admin Portal</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input class="sc-navbar__search-input" type="search" placeholder="Search keyword or user..." />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin" width="36" height="36" />
+        </div>
+      </div>
+    </header>
+
+    <main class="sc-page-content">
+
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Review Moderation</h1>
+        </div>
+        <button class="sc-btn sc-btn--navy" id="exportBtn">⬇ Export</button>
+      </div>
+
+      <!-- Tabs + Search -->
+      <div class="admin-tabs-bar">
+        <div class="admin-tabs">
+          <button class="admin-tab admin-tab--active" data-tab="all">All Reviews</button>
+          <button class="admin-tab" data-tab="reported">
+            Reported Reviews
+            <span class="admin-tab-badge" id="reportedCount"></span>
+          </button>
+        </div>
+        <div class="sc-field__wrapper admin-filter-search" style="max-width:280px;">
+          <span class="sc-field__icon sc-field__icon--left">🔍</span>
+          <input id="reviewSearch" class="sc-input sc-input--icon-left"
+            type="search" placeholder="Search keyword or user..." />
+        </div>
+        <button class="sc-btn sc-btn--outline sc-btn--icon" aria-label="Filter">⚙</button>
+      </div>
+
+      <!-- Table -->
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>REVIEWER</th>
+              <th>ARTISAN</th>
+              <th>RATING</th>
+              <th>REVIEW TEXT</th>
+              <th>DATE</th>
+              <th>STATUS</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="reviewsTableBody"></tbody>
+        </table>
+        <div class="admin-table-footer">
+          <p class="admin-table-count" id="reviewCount"></p>
+          <div class="admin-pagination">
+            <button class="admin-pagination__btn">‹</button>
+            <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
+            <button class="admin-pagination__btn">2</button>
+            <span class="admin-pagination__ellipsis">...</span>
+            <button class="admin-pagination__btn">›</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+    <script src="../../js/admin/reviews.js"></script>
 </body>
 </html>

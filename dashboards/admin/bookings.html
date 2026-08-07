@@ -1,11 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Booking Management | ServiceConnect Nigeria</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/admin.css" />
 </head>
 <body>
-    <!-- Platform Booking Master Tracker -->
+
+<div class="sc-layout">
+
+  <aside class="sc-sidebar">
+    <div class="sc-sidebar__brand">
+      <div class="sc-sidebar__brand-icon">⚙</div>
+      <div class="sc-sidebar__brand-text">
+        <span class="sc-sidebar__brand-name">ServiceConnect</span>
+        <span class="sc-sidebar__brand-sub">ADMIN DASHBOARD</span>
+      </div>
+    </div>
+    <nav class="sc-sidebar__nav">
+      <a href="index.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">▦</span>
+        <span class="sc-sidebar__nav-label">Overview</span>
+      </a>
+      <a href="users.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">👤</span>
+        <span class="sc-sidebar__nav-label">User Management</span>
+      </a>
+      <a href="verification.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">🛡</span>
+        <span class="sc-sidebar__nav-label">Artisan Verification</span>
+      </a>
+      <a href="bookings.html" class="sc-sidebar__nav-item sc-sidebar__nav-item--active">
+        <span class="sc-sidebar__nav-icon">📅</span>
+        <span class="sc-sidebar__nav-label">Booking Management</span>
+      </a>
+      <a href="reviews.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">★</span>
+        <span class="sc-sidebar__nav-label">Reviews</span>
+      </a>
+      <a href="financials.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">💰</span>
+        <span class="sc-sidebar__nav-label">Financials</span>
+      </a>
+      <a href="settings.html" class="sc-sidebar__nav-item">
+        <span class="sc-sidebar__nav-icon">⚙</span>
+        <span class="sc-sidebar__nav-label">System Settings</span>
+      </a>
+    </nav>
+    <div class="sc-sidebar__bottom">
+      <button class="sc-sidebar__cta">＋ Post a Job</button>
+      <button class="sc-sidebar__logout"><span>↩</span><span>Logout</span></button>
+    </div>
+  </aside>
+
+  <div class="sc-main">
+    <header class="sc-navbar">
+      <p class="admin-navbar-title">Admin Portal</p>
+      <div class="sc-navbar__search">
+        <span class="sc-navbar__search-icon">🔍</span>
+        <input class="sc-navbar__search-input" type="search" placeholder="Search..." />
+      </div>
+      <div class="sc-navbar__actions">
+        <button class="sc-navbar__icon-btn">🔔<span class="sc-navbar__badge"></span></button>
+        <button class="sc-navbar__icon-btn">❓</button>
+        <div class="sc-navbar__divider"></div>
+        <div class="sc-navbar__user">
+          <img class="admin-avatar"
+            src="https://ui-avatars.com/api/?name=Victor+Ugwu&background=0B2240&color=fff&size=36"
+            alt="Admin" width="36" height="36" />
+        </div>
+      </div>
+    </header>
+
+    <main class="sc-page-content">
+
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Booking Management</h1>
+          <p class="admin-page-sub">Monitor and manage all service requests across the platform.</p>
+        </div>
+        <button class="sc-btn sc-btn--outline" id="exportBtn">⬇ Export Report</button>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="admin-stats-grid" id="bookingStats"></div>
+
+      <!-- Filter Bar -->
+      <div class="admin-filter-bar">
+        <div class="sc-field__wrapper admin-filter-search">
+          <span class="sc-field__icon sc-field__icon--left">🔍</span>
+          <input id="bookingSearch" class="sc-input sc-input--icon-left"
+            type="search" placeholder="Search by ID, Name, Artisan..." />
+        </div>
+        <select class="admin-filter-select" id="statusFilter">
+          <option value="">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <select class="admin-filter-select" id="categoryFilter">
+          <option value="">All Categories</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Electrical">Electrical</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Carpentry">Carpentry</option>
+        </select>
+        <button class="sc-btn sc-btn--outline sc-btn--icon" aria-label="Date range">📅</button>
+      </div>
+
+      <!-- Table -->
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>BOOKING ID</th>
+              <th>SERVICE / CATEGORY</th>
+              <th>CUSTOMER</th>
+              <th>ARTISAN</th>
+              <th>DATE & TIME</th>
+              <th>AMOUNT</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTableBody"></tbody>
+        </table>
+        <div class="admin-table-footer">
+          <p class="admin-table-count" id="bookingCount"></p>
+          <div class="admin-pagination">
+            <button class="admin-pagination__btn">‹</button>
+            <button class="admin-pagination__btn admin-pagination__btn--active">1</button>
+            <button class="admin-pagination__btn">2</button>
+            <button class="admin-pagination__btn">3</button>
+            <span class="admin-pagination__ellipsis">...</span>
+            <button class="admin-pagination__btn">10</button>
+            <button class="admin-pagination__btn">›</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+    <script src="../../js/admin/bookings.js"></script>
 </body>
 </html>
