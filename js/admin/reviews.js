@@ -1,4 +1,5 @@
-import { reviews } from '../../js/api.js';
+import { reviews } from '../api.js';
+console.log("reviews: ", reviews);
 
 const tbody       = document.getElementById('reviewsTableBody');
 const reviewCount = document.getElementById('reviewCount');
