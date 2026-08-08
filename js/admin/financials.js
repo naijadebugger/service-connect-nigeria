@@ -1,4 +1,7 @@
 import {  transactions} from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
 
 console.log("transactions: ", transactions);
 const fmt    = (n) => `₦${Number(n).toLocaleString('en-NG')}`;

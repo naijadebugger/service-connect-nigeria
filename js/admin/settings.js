@@ -1,4 +1,7 @@
 import { platformSettings } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
 console.log("platformSettings: ", platformSettings);
 
 // Populate from api.js
