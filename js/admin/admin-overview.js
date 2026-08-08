@@ -1,4 +1,8 @@
 import { dashboardStats, bookings } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');w
+
 console.log("dashboardStats: ", dashboardStats);
 console.log("bookings: ", bookings);
 

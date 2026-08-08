@@ -1,4 +1,8 @@
 import { verificationQueue } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
+
 console.log("verificationQueue: ", verificationQueue);
 
 const queueList    = document.getElementById('queueList');

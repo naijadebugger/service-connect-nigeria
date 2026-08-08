@@ -1,4 +1,7 @@
 import { reviews } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
 console.log("reviews: ", reviews);
 
 const tbody       = document.getElementById('reviewsTableBody');

@@ -1,4 +1,8 @@
-import { bookings, dashboardStats } from '../../js/api.js';
+import { bookings, dashboardStats } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
+
 console.log("bookings: ", bookings);
 console.log("dashboardStats: ", dashboardStats);
 
@@ -13,8 +17,8 @@ const statDefs = [
 ];
 
 const statsGrid = document.getElementById('bookingStats');
-statDefs.forEach(({ label, value, growth }) => {
-statsGrid.insertAdjacentHTML('beforeend', `
+statDefs?.forEach(({ label, value, growth }) => {
+statsGrid?.insertAdjacentHTML('beforeend', `
     <div class="admin-stat-card">
     <div class="admin-stat-card__top">
         <span class="admin-stat-card__icon">📅</span>
@@ -41,7 +45,8 @@ const statusFilter  = document.getElementById('statusFilter');
 const categoryFilter= document.getElementById('categoryFilter');
 
 function renderTable(data) {
-tbody.innerHTML = '';
+tbody ?  tbody.innerHTML : '';
+
 bookingCount.textContent = `Showing 1 to ${data.length} of ${data.length} entries`;
 if (data.length === 0) {
     tbody.innerHTML = `<tr><td colspan="8" class="admin-table-empty">No bookings match your filters.</td></tr>`;

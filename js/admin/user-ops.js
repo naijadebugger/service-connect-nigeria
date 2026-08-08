@@ -1,4 +1,8 @@
 import { users } from '../api.js';
+import { initLayout } from '../layout.js';
+
+initLayout('bookings');
+
 console.log("users: ", users);
 
 const tbody = document.getElementById('usersTableBody');
