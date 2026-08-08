@@ -1,5 +1,6 @@
-import { transactions } from '../../js/api.js';
+import {  transactions} from '../api.js';
 
+console.log("transactions: ", transactions);
 const fmt    = (n) => `₦${Number(n).toLocaleString('en-NG')}`;
 const fmtBig = (n) => `₦${(n / 1000000).toFixed(2)}M`;
 

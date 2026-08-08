@@ -1,4 +1,5 @@
 import { users } from '../api.js';
+console.log("users: ", users);
 
 const tbody = document.getElementById('usersTableBody');
 const tableCount = document.getElementById('tableCount');

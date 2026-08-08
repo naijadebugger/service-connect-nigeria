@@ -1,4 +1,6 @@
 import { bookings, dashboardStats } from '../../js/api.js';
+console.log("bookings: ", bookings);
+console.log("dashboardStats: ", dashboardStats);
 
 const fmt = (n) => `₦${Number(n).toLocaleString('en-NG')}`;
 
