@@ -1,4 +1,5 @@
-import { platformSettings } from '../../js/api.js';
+import { platformSettings } from '../api.js';
+console.log("platformSettings: ", platformSettings);
 
 // Populate from api.js
 document.getElementById('platformName').value  = platformSettings.platformName;

@@ -1,4 +1,5 @@
-import { verificationQueue } from '../../js/api.js';
+import { verificationQueue } from '../api.js';
+console.log("verificationQueue: ", verificationQueue);
 
 const queueList    = document.getElementById('queueList');
 const queueCount   = document.getElementById('queueCount');
