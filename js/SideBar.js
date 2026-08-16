@@ -29,7 +29,7 @@ function SCSidebar({
   onLogout    = null,
   navItems    = null,
   brandName   = 'ServiceConnect',
-  brandSub    = 'Customer Portal',
+  brandSub    = 'Nigeria Portal',
 } = {}) {
   const aside = document.createElement('aside');
   aside.className = 'sc-sidebar';
@@ -39,7 +39,6 @@ function SCSidebar({
   //  Brand 
   aside.innerHTML = `
     <div class="sc-sidebar__brand" aria-label="${brandName}">
-      <div class="sc-sidebar__brand-icon" aria-hidden="true">🔧</div>
       <div class="sc-sidebar__brand-text">
         <div class="sc-sidebar__brand-name">${brandName}</div>
         <div class="sc-sidebar__brand-sub">${brandSub}</div>

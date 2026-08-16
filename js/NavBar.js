@@ -2,8 +2,8 @@
  * ServiceConnect — Navbar Component
  *
  * Two variants:
- *   'public'  — logo + nav links (Home, Services, Become an Artisan) + Login / Sign Up
- *   'portal'  — logo + search bar + notification icon + user avatar
+ *   'public'  — nav links (Home, Services, Become an Artisan) + Login / Sign Up
+ *   'portal'  — search bar + notification icon + user avatar
  *
  * Usage:
  *   const nav = SCNavbar({ variant, activeLink, user, onSearch, onNotification, onMenuToggle })
@@ -34,10 +34,6 @@ function SCNavbar({
   nav.setAttribute('role', 'navigation');
   nav.setAttribute('aria-label', 'Main navigation');
 
-  //  Logo 
-  const logo = _buildLogo(variant);
-  nav.appendChild(logo);
-
   if (variant === 'public') {
     _buildPublicNav(nav, activeLink, links);
   } else {
@@ -48,28 +44,6 @@ function SCNavbar({
 }
 
 //  Private helpers 
-
-function _buildLogo(variant) {
-  const a = document.createElement('a');
-  a.href = '/';
-  a.className = 'sc-navbar__logo';
-  a.setAttribute('aria-label', 'ServiceConnect home');
-
-  if (variant === 'portal') {
-    // Simpler text-only logo for portal
-    a.innerHTML = `
-      <div class="sc-navbar__logo-icon" aria-hidden="true">🔧</div>
-      <div>
-        <span style="display:block;font-size:var(--font-base);font-weight:700;color:var(--color-navy)">ServiceConnect</span>
-        <span class="sc-navbar__logo-sub">Nigeria Portal</span>
-      </div>`;
-  } else {
-    a.innerHTML = `
-      <span style="font-size:var(--font-lg);font-weight:700;color:var(--color-navy)">ServiceConnect</span>`;
-  }
-
-  return a;
-}
 
 function _buildPublicNav(nav, activeLink, customLinks) {
   const defaultLinks = [

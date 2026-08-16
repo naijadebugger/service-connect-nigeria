@@ -266,6 +266,35 @@ function buildBookingForm() {
 }
 
 /* ---------------------------------------------------------------- */
+/* Trust badges — Service Guarantee / Secure Payment / 24/7 Support */
+/* ---------------------------------------------------------------- */
+
+function buildTrustBadges() {
+  const badges = [
+    { icon: '🛡️', title: 'Service Guarantee', subtitle: '100% Satisfaction Included' },
+    { icon: '🔒', title: 'Secure Payment',     subtitle: 'Escrow protection active' },
+    { icon: '🎧', title: '24/7 Support',       subtitle: 'Always here for you' },
+  ];
+
+  const row = document.createElement('div');
+  row.className = 'sc-trust-badges';
+
+  badges.forEach(({ icon, title, subtitle }) => {
+    const card = document.createElement('div');
+    card.className = 'sc-trust-badge';
+    card.innerHTML = `
+      <span class="sc-trust-badge__icon" aria-hidden="true">${icon}</span>
+      <div>
+        <p class="sc-trust-badge__title">${title}</p>
+        <p class="sc-trust-badge__subtitle">${subtitle}</p>
+      </div>`;
+    row.appendChild(card);
+  });
+
+  return row;
+}
+
+/* ---------------------------------------------------------------- */
 /* Assemble page                                                    */
 /* ---------------------------------------------------------------- */
 
@@ -285,6 +314,7 @@ function renderBookingPage() {
   layout.appendChild(buildBookingForm());
 
   content.appendChild(layout);
+  content.appendChild(buildTrustBadges());
 }
 
 document.addEventListener('DOMContentLoaded', renderBookingPage);

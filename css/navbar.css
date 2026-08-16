@@ -14,18 +14,6 @@
   gap:        var(--space-6);
 }
 
-/* Logo */
-.sc-navbar__logo {
-  /* display:     flex;
-  align-items: center;
-  gap:         var(--space-2);
-  font-size:   var(--font-lg);
-  font-weight: 700;
-  color:       var(--color-navy);
-  flex-shrink: 0; */
-  display: none;
-}
-
 .sc-navbar__logo-icon {
   width:         36px;
   height:        36px;
